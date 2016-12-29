@@ -63,6 +63,20 @@ namespace SteamMonitor.SteamTraderCore
 
                 return cookies;
             }
+
+            public static CookieContainer LoadCookieContainer(string fileName)
+            {
+                var p = LoadFile(fileName);
+
+                var r = new CookieContainer();
+
+                foreach (var i in p)
+                {
+                    r.Add(i);
+                }
+
+                return r;
+            }
         }
 
     }
