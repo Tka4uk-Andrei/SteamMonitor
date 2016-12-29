@@ -46,7 +46,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
             req.KeepAlive = true;
 
             req.CookieContainer = new CookieContainer();
-            foreach (var i in CookieWorker.LoadFile(cookiePath))
+            foreach (var i in FileLoader.CookieWorker.LoadFile(cookiePath))
                 req.CookieContainer.Add(i);
 
             return req;

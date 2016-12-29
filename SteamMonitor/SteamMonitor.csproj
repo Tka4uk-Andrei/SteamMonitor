@@ -90,11 +90,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Old_Programm\CookieWorker.cs" />
     <Compile Include="Old_Programm\Item.cs" />
-    <Compile Include="Old_Programm\KeyWorcker.cs" />
     <Compile Include="Old_Programm\ProfitFinder.cs" />
     <Compile Include="Old_Programm\QualityWorker.cs" />
+    <Compile Include="SteamTraderCore\FileLoader.cs" />
     <Compile Include="SteamTraderCore\Site.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\AdditionalHiddenBodygroups.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\Attribute.cs" />

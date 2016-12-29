@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using SteamMonitor.SteamTraderCore;
 
 namespace Steam_monitor.TF2Mart
 {
@@ -13,7 +14,7 @@ namespace Steam_monitor.TF2Mart
 
          public Tf2MartDownload()
          {
-             _cookies = CookieWorker.LoadFile(TF2_MART_COOKIE);
+             _cookies = FileLoader.CookieWorker.LoadFile(TF2_MART_COOKIE);
          }
 
         public const string TF2_MART_POST_PARAMS1 =
