@@ -5,7 +5,6 @@ using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.TF2Mart;
 using Steam_monitor;
 using Steam_monitor.SteamSchema;
-using Steam_monitor.TF2Mart;
 using Button = System.Windows.Controls.Button;
 
 namespace SteamMonitor

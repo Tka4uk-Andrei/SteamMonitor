@@ -1,37 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using SteamMonitor.SteamTraderCore;
-using SteamMonitor.SteamTraderCore.TF2Mart;
+using System.Net;
+using Steam_monitor;
 
-namespace Steam_monitor.TF2Mart
+namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
     public class Tf2MartSite : Site
     {
-        private const string SITE_NAME = "TF2 Mart";
-        private const string INI_FILE_PATH = "tf2_mart_keys.dat";
+        private const string SITE_NAME = "TF2Mart";
+        private const string INI_FILE_PATH = SITE_NAME + ".dat";
 
         private readonly double _buyKeyPrice;
+        private readonly CookieContainer _cookieContainer;
+        private readonly Tf2MartDownload _download;
+
+        private readonly List<Item> _martItems;
+        private readonly TF2MartParser _parser;
         private readonly double _sellKeyPrice;
 
-        private List<Item> _martItems;
-
-        public Tf2MartSite(List<int> qualities, Tf2MartDownload download, TF2MartParser parser)
+        public Tf2MartSite(List<int> qualities, string cookiePath)
         {
-            Download = download;
-            Parser = parser;
+            _download = new Tf2MartDownload();
+            _parser = new TF2MartParser();
 
-            var iniInfo = new StreamReader(INI_FILE_PATH);
-            _sellKeyPrice = Convert.ToDouble(iniInfo.ReadLine());
-            _buyKeyPrice = Convert.ToDouble(iniInfo.ReadLine());
-            iniInfo.Close();
+            _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);
 
-            UpdateItems(qualities);
+            _sellKeyPrice = FileLoader.KeyWorcker.GetSellPrice(INI_FILE_PATH);
+            _buyKeyPrice = FileLoader.KeyWorcker.GetBuyPrice(INI_FILE_PATH);
+
+            _martItems = new List<Item>();
+
+            foreach (var quality in qualities)
+                Download(quality);
         }
-
-        private Tf2MartDownload Download { get; }
-        private TF2MartParser Parser { get; }
 
         public override string GetSiteName()
         {
@@ -58,41 +59,30 @@ namespace Steam_monitor.TF2Mart
             return _martItems.Where(item => item.quality == quality).ToList();
         }
 
-        private void DownloadByOneQuality(int quality)
+        public void Download(int quality)
         {
-            foreach (var t in Parser.getItems(Download.Download(quality)))
+            ClearItemsList(quality);
+
+            foreach (var t in _parser.getItems(_download.Download(_cookieContainer, 1, "1", quality)))
                 _martItems.Add(t);
 
-            //var items = Parser.getItems(Download.Download(1, "d", quality));
-
-            //foreach (var t in items)
-            //    _martItems.Add(t);
-
-            while (Parser.NextFlag)
-            {
-                var items = Parser.getItems(Download.Download(_martItems[_martItems.Count - 1].defindex,
-                    _martItems[_martItems.Count - 1].id, quality));
-
-                foreach (var t in items)
+            while (_parser.NextFlag)
+                foreach (var t in
+                    _parser.getItems(_download.Download
+                        (_cookieContainer, _martItems[_martItems.Count - 1].defindex,
+                            _martItems[_martItems.Count - 1].id, quality)))
                     _martItems.Add(t);
-            }
-
         }
 
-        public void UpdateItems(List<int> qualities)
+        private void ClearItemsList(int quality)
         {
-            //Console.ForegroundColor = ConsoleColor.Cyan;
-            //Console.Write("{0, -30}> ", "Загрузка TF2Mart ".PadRight(30, '-'));
+            for (var i = 0; i < _martItems.Count; ++i)
+            {
+                if (_martItems[i].quality != quality) continue;
 
-            _martItems = new List<Item>();
-
-            foreach (var i in qualities)
-                DownloadByOneQuality(i);
-
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("окончена");
-
-            //Console.ResetColor();
+                _martItems.RemoveAt(i);
+                i--;
+            }
         }
     }
 }

@@ -65,6 +65,14 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
         public void Download(int quality)
         {
+            for (var i = 0; i < _steamItems.Count; ++i)
+            {
+                if (_steamItems[i].quality != quality) continue;
+
+                _steamItems.RemoveAt(i);
+                i--;
+            }
+
             _download.StartCount = 0;
             do
             {
