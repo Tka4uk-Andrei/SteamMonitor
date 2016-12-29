@@ -128,16 +128,16 @@
     <Compile Include="SteamTraderCore\Steam\SteamDownload.cs" />
     <Compile Include="SteamTraderCore\Steam\SteamParser.cs" />
     <Compile Include="SteamTraderCore\Steam\SteamSite.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Currencies.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Key.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Position.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Price.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Quantity.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\Ref.cs" />
-    <Compile Include="Old_Programm\TF2Mart\Json\TF2MartResponse.cs" />
-    <Compile Include="Old_Programm\TF2Mart\TF2MartDownload.cs" />
-    <Compile Include="Old_Programm\TF2Mart\TF2MartParser.cs" />
-    <Compile Include="Old_Programm\TF2Mart\TF2MartSite.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Currencies.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Key.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Position.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Price.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Quantity.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\Ref.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\Json\TF2MartResponse.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\TF2MartDownload.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\TF2MartParser.cs" />
+    <Compile Include="SteamTraderCore\TF2Mart\TF2MartSite.cs" />
     <Compile Include="Old_Programm\TradeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
