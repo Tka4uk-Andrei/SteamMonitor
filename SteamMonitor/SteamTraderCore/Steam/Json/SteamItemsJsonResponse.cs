@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Steam_monitor.Steam.Json
+namespace SteamMonitor.SteamTraderCore.Steam.Json
 {
     [DataContract]
     internal class SteamItemsJsonResponse
