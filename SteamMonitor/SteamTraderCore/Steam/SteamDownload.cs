@@ -10,64 +10,39 @@ namespace SteamMonitor.SteamTraderCore.Steam
         private const string STEAM_MARKET_ITEM =
             "http://steamcommunity.com/market/search/render/?query={0}&start={1}&count=100&curency=5&appid=440&sort_column=name&sort_dir=asc";
 
-        // TODO constructor with Cookie load
-        // TODO set quality
+        // TODO args support
 
         public int StartCount { get; set; } = 0;
 
-        public StreamReader Download(string cookiePath, int quality)
+        public StreamReader Download(CookieContainer cookies, int quality)
         {
-            return download(GenerateRequest(cookiePath, quality));
+            var req = GenerateRequest(cookies, quality);
+
+            try
+            {
+                var resp = (HttpWebResponse)req.GetResponse();
+                return new StreamReader(resp.GetResponseStream());
+            }
+            catch (Exception exception)
+            {
+                // Warning exception not executed
+            }
+            return null;
         }
 
-        public StreamReader Download(string cookiePath, string quality)
-        {
-            return download(GenerateRequest(cookiePath, quality));
-        }
-
-        private HttpWebRequest GenerateRequest(string cookiePath, string quality)
-        {
-            var req = (HttpWebRequest) WebRequest.Create(string.Format(STEAM_MARKET_ITEM, quality, StartCount));
-            return SetSettingsToRequest(req, cookiePath);
-        }
-
-        private HttpWebRequest GenerateRequest(string cookiePath, int quality)
+        private HttpWebRequest GenerateRequest(CookieContainer cookies, int quality)
         {
             var req =
                 (HttpWebRequest)
                     WebRequest.Create(string.Format(STEAM_MARKET_ITEM, QualityWorker.GetIdDictionary()[quality],
                         StartCount));
-            return SetSettingsToRequest(req, cookiePath);
-        }
 
-        private HttpWebRequest SetSettingsToRequest(HttpWebRequest req, string cookiePath)
-        {
             req.Method = "GET";
             req.KeepAlive = true;
 
-            req.CookieContainer = new CookieContainer();
-            foreach (var i in FileLoader.CookieWorker.LoadFile(cookiePath))
-                req.CookieContainer.Add(i);
+            req.CookieContainer = cookies;
 
             return req;
-        }
-
-        private StreamReader download(HttpWebRequest req)
-        {
-            try
-            {
-                var resp = (HttpWebResponse) req.GetResponse();
-                return new StreamReader(resp.GetResponseStream());
-            }
-            catch (Exception exception)
-            {
-                //Console.WriteLine("Ошибка при загрузке информации со Steam");
-                //Console.ForegroundColor = ConsoleColor.Red;
-                //Console.WriteLine("{0, 30}", exception.Message + "\n");
-                //Console.ReadLine();
-                //Environment.Exit(0);
-            }
-            return null;
         }
     }
 }

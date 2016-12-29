@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.Steam
@@ -15,6 +16,8 @@ namespace SteamMonitor.SteamTraderCore.Steam
         private readonly double _sellKeyPrice;
 
         private List<Item> _steamItems;
+
+        private CookieContainer
 
         public SteamSite(string cookiePath, List<int> qualities)
         {
