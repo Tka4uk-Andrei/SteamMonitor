@@ -9,7 +9,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
     public class SteamSite : Site
     {
         private const string SITE_NAME = "SteamCommunity";
-        private const string INI_FILE_PATH = "steam key.dat";
+        private const string INI_FILE_PATH = SITE_NAME + ".dat";
 
         private readonly double _buyKeyPrice;
         private readonly double _sellKeyPrice;
