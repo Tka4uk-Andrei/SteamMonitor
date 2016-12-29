@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using SteamMonitor.SteamTraderCore;
-using SteamMonitor.SteamTraderCore.Steam;
+using Steam_monitor;
 
-namespace Steam_monitor.Steam
+namespace SteamMonitor.SteamTraderCore.Steam
 {
     public class SteamSite : Site
     {

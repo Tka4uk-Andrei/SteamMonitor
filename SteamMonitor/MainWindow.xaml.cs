@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SteamMonitor.SteamTraderCore.Steam;
 using Steam_monitor;
 using Steam_monitor.Steam;
 using Steam_monitor.SteamSchema;
