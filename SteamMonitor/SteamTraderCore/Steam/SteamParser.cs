@@ -4,24 +4,28 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using HtmlAgilityPack;
+using Steam_monitor;
 using Steam_monitor.Steam.Json;
-using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
-namespace Steam_monitor
+namespace SteamMonitor.SteamTraderCore.Steam
 {
     public class SteamParser
     {
-        public int maxPage { get; set; } = 0;
+        public int MaxPage { get; set; }
 
-        public List<Item> getItems(StreamReader response)
+        public SteamParser()
+        {
+            MaxPage = 0;
+        }
+
+        public List<Item> GetItems(StreamReader response)
         {
             var doc = new HtmlDocument();
 
             var steamResponse = Serilization(response);
 
-            maxPage = steamResponse.TotalCount;
+            MaxPage = steamResponse.TotalCount;
 
             doc.LoadHtml(steamResponse.ResultsHtml);
 

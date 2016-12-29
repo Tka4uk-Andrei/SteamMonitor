@@ -68,9 +68,9 @@ namespace SteamMonitor.SteamTraderCore.Steam
             _download.StartCount = 0;
             do
             {
-                _steamItems.AddRange(_parser.getItems(_download.Download(_cookieContainer, quality)));
+                _steamItems.AddRange(_parser.GetItems(_download.Download(_cookieContainer, quality)));
                 _download.StartCount += 100;
-            } while (_download.StartCount <= _parser.maxPage);
+            } while (_download.StartCount <= _parser.MaxPage);
         }
     }
 }
