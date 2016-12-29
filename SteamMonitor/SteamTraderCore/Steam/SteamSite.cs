@@ -17,7 +17,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
         private List<Item> _steamItems;
 
-        private CookieContainer
+        private CookieContainer cookieContainer;
 
         public SteamSite(string cookiePath, List<int> qualities)
         {

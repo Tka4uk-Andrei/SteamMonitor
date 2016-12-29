@@ -5,7 +5,7 @@ using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.Steam
 {
-    public class SteamDownload
+    public class SteamDownload : IDownload
     {
         private const string STEAM_MARKET_ITEM =
             "http://steamcommunity.com/market/search/render/?query={0}&start={1}&count=100&curency=5&appid=440&sort_column=name&sort_dir=asc";
@@ -20,8 +20,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
             try
             {
-                var resp = (HttpWebResponse)req.GetResponse();
-                return new StreamReader(resp.GetResponseStream());
+                return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());
             }
             catch (Exception exception)
             {
