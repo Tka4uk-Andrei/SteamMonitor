@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using SteamMonitor.SteamTraderCore;
+using Steam_monitor;
 
-namespace Steam_monitor.TF2Mart
+namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
     public class Tf2MartDownload
     {
@@ -19,9 +19,8 @@ namespace Steam_monitor.TF2Mart
 
         public const string TF2_MART_POST_PARAMS1 =
             "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A22%2C%22defindex%22%3A910%2C%22quality%22%3A{0}%7D%2C%22quality%22%3A%5B%22{0}%22%5D%7D";
-            //"qty=50&page=0&filters=%7B%22variations%22%3Afalse%2C%22sort%22%3A%22type%22%2C%22quality%22%3A%5B%22{0}%22%5D%7D";
 
-        public const string TF2_MART_POST_PARAMS2 =
+        public const string TF2_MART_POST_PARAMS =
             "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A50%2C%22defindex%22%3A{0}%2C%22quality%22%3A{2}%2C%22id%22%3A%22{1}%22%7D%2C%22quality%22%3A%5B%22{2}%22%5D%7D";
 
         public StreamReader Download(int quality)
@@ -38,14 +37,14 @@ namespace Steam_monitor.TF2Mart
         {
             //return Download(GenerateRequest2(TF2_MART_POST_PARAMS3));
 
-            return Download(GenerateRequest2(string.Format(TF2_MART_POST_PARAMS2, defindex, id, quality)));
+            return Download(GenerateRequest2(string.Format(TF2_MART_POST_PARAMS, defindex, id, quality)));
         }
 
         public StreamReader Download(int defindex, string id, string quality)
         {
             return
                 Download(GenerateRequest2(
-                    string.Format(TF2_MART_POST_PARAMS2, defindex, id, QualityWorker.GetStringDictionary()[quality])));
+                    string.Format(TF2_MART_POST_PARAMS, defindex, id, QualityWorker.GetStringDictionary()[quality])));
         }
 
         private HttpWebRequest GenerateRequest2(string post)
@@ -109,11 +108,7 @@ namespace Steam_monitor.TF2Mart
             }
             catch (Exception exception)
             {
-                Console.WriteLine("Ошибка при загрузке информации с Tf2Mart\n");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0, 30}", exception.Message + "\n");
-                Console.ReadLine();
-                Environment.Exit(0);
+                // Warning not executed exception
             }
             return null;
         }
