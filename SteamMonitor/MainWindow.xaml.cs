@@ -39,7 +39,7 @@ namespace SteamMonitor
 
             //var qualities = QualityWorker.GetQualities("All");
 
-            var tf2MartSite = new Tf2MartSite(qualities, new Tf2MartDownload(), new TF2MartParser());
+            var tf2MartSite = new Tf2MartSite(qualities, new Tf2MartDownload(), new Tf2MartParser());
             var steamSchema = new SteamSchemaSite();
 
             var steamSite = new SteamSite

@@ -8,11 +8,11 @@ using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
-    public class TF2MartParser
+    public class Tf2MartParser
     {
         public bool NextFlag { get; set; }
 
-        public List<Item> getItems(StreamReader response)
+        public List<Item> GetItems(StreamReader response)
         {
             var items = new List<Item>();
 

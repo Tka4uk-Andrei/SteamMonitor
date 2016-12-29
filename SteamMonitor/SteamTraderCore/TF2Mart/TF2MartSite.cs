@@ -15,13 +15,13 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
         private readonly Tf2MartDownload _download;
 
         private readonly List<Item> _martItems;
-        private readonly TF2MartParser _parser;
+        private readonly Tf2MartParser _parser;
         private readonly double _sellKeyPrice;
 
         public Tf2MartSite(List<int> qualities, string cookiePath)
         {
             _download = new Tf2MartDownload();
-            _parser = new TF2MartParser();
+            _parser = new Tf2MartParser();
 
             _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);
 
@@ -63,12 +63,12 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
         {
             ClearItemsList(quality);
 
-            foreach (var t in _parser.getItems(_download.Download(_cookieContainer, 1, "1", quality)))
+            foreach (var t in _parser.GetItems(_download.Download(_cookieContainer, 1, "1", quality)))
                 _martItems.Add(t);
 
             while (_parser.NextFlag)
                 foreach (var t in
-                    _parser.getItems(_download.Download
+                    _parser.GetItems(_download.Download
                         (_cookieContainer, _martItems[_martItems.Count - 1].defindex,
                             _martItems[_martItems.Count - 1].id, quality)))
                     _martItems.Add(t);
