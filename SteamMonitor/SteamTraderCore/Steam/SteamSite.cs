@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Steam_monitor;
@@ -13,29 +11,32 @@ namespace SteamMonitor.SteamTraderCore.Steam
         private const string INI_FILE_PATH = SITE_NAME + ".dat";
 
         private readonly double _buyKeyPrice;
+        private readonly CookieContainer _cookieContainer;
+        private readonly SteamDownload _download;
+        private readonly SteamParser _parser;
         private readonly double _sellKeyPrice;
+        private readonly List<Item> _steamItems;
 
-        private List<Item> _steamItems;
-
-        private CookieContainer cookieContainer;
-
+        /// <summary>
+        ///     main constructor what gets items by given qualities
+        /// </summary>
+        /// <param name="cookiePath"></param>
+        /// <param name="qualities">qualities what will be download</param>
         public SteamSite(string cookiePath, List<int> qualities)
         {
-            download = new SteamDownload();
-            parser = new SteamParser();
+            _download = new SteamDownload();
+            _parser = new SteamParser();
 
-            var iniInfo = new StreamReader(INI_FILE_PATH);
-            _sellKeyPrice = Convert.ToDouble(iniInfo.ReadLine());
-            _buyKeyPrice = Convert.ToDouble(iniInfo.ReadLine());
-            iniInfo.Close();
+            _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);
+
+            _sellKeyPrice = FileLoader.KeyWorcker.GetSellPrice(INI_FILE_PATH);
+            _buyKeyPrice = FileLoader.KeyWorcker.GetBuyPrice(INI_FILE_PATH);
 
             _steamItems = new List<Item>();
 
-            InitializeDownload(qualities, cookiePath);
+            foreach (var quality in qualities)
+                Download(quality);
         }
-
-        private SteamDownload download { get; }
-        private SteamParser parser { get; }
 
         public override string GetSiteName()
         {
@@ -62,27 +63,14 @@ namespace SteamMonitor.SteamTraderCore.Steam
             return _steamItems.Where(item => item.quality == quality).ToList();
         }
 
-        public void InitializeDownload(List<int> qualities, string cookiePath)
+        public void Download(int quality)
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write("{0, -30}> ", "Загрузка Steam Items ".PadRight(30, '-'));
-
-            _steamItems = new List<Item>();
-
-            foreach (var quality in qualities)
+            _download.StartCount = 0;
+            do
             {
-                download.StartCount = 0;
-                do
-                {
-                    _steamItems.AddRange(parser.getItems(download.Download(cookiePath, quality)));
-                    download.StartCount += 100;
-                } while (download.StartCount <= parser.maxPage);
-            }
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("окончена");
-
-            Console.ResetColor();
+                _steamItems.AddRange(_parser.getItems(_download.Download(_cookieContainer, quality)));
+                _download.StartCount += 100;
+            } while (_download.StartCount <= _parser.maxPage);
         }
     }
 }
