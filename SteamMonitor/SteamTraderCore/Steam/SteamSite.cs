@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SteamMonitor.SteamTraderCore;
+using SteamMonitor.SteamTraderCore.Steam;
 
 namespace Steam_monitor.Steam
 {
-    public class SteamSite : Site.Site
+    public class SteamSite : Site
     {
         private const string SITE_NAME = "SteamCommunity";
         private const string INI_FILE_PATH = "steam key.dat";

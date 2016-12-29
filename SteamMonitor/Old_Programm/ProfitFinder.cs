@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using SteamMonitor.SteamTraderCore;
 
 namespace Steam_monitor
 {
     public class ProfitFinder
     {
         // покупаем на а продаём на б
-        public static List<TradeModel> CompareItems(Site.Site a, Site.Site b)
+        public static List<TradeModel> CompareItems(Site a, Site b)
         {
             var trades = new List<TradeModel>();
 

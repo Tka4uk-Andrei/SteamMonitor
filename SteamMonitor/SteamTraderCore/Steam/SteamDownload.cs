@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using Steam_monitor;
 
-namespace Steam_monitor.Steam
+namespace SteamMonitor.SteamTraderCore.Steam
 {
     public class SteamDownload
     {

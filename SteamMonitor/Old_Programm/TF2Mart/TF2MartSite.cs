@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using SteamMonitor.SteamTraderCore;
 
 namespace Steam_monitor.TF2Mart
 {
-    public class Tf2MartSite : Site.Site
+    public class Tf2MartSite : Site
     {
         private const string SITE_NAME = "TF2 Mart";
         private const string INI_FILE_PATH = "tf2_mart_keys.dat";

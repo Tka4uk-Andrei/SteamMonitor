@@ -95,7 +95,7 @@
     <Compile Include="Old_Programm\KeyWorcker.cs" />
     <Compile Include="Old_Programm\ProfitFinder.cs" />
     <Compile Include="Old_Programm\QualityWorker.cs" />
-    <Compile Include="Old_Programm\Site\Site.cs" />
+    <Compile Include="SteamTraderCore\Site.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\AdditionalHiddenBodygroups.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\Attribute.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\Attribute1.cs" />
@@ -118,16 +118,16 @@
     <Compile Include="Old_Programm\SteamSchema\Json\Tool.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\UsageCapabilities.cs" />
     <Compile Include="Old_Programm\SteamSchema\SteamSchemaSite.cs" />
-    <Compile Include="Old_Programm\Steam\Json\Action.cs" />
-    <Compile Include="Old_Programm\Steam\Json\AppData.cs" />
-    <Compile Include="Old_Programm\Steam\Json\Asset.cs" />
-    <Compile Include="Old_Programm\Steam\Json\Assets.cs" />
-    <Compile Include="Old_Programm\Steam\Json\Description.cs" />
-    <Compile Include="Old_Programm\Steam\Json\Listinginfo.cs" />
-    <Compile Include="Old_Programm\Steam\Json\SteamItemsJsonResponse.cs" />
-    <Compile Include="Old_Programm\Steam\SteamDownload.cs" />
-    <Compile Include="Old_Programm\Steam\SteamParser.cs" />
-    <Compile Include="Old_Programm\Steam\SteamSite.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\Action.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\AppData.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\Asset.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\Assets.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\Description.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\Listinginfo.cs" />
+    <Compile Include="SteamTraderCore\Steam\Json\SteamItemsJsonResponse.cs" />
+    <Compile Include="SteamTraderCore\Steam\SteamDownload.cs" />
+    <Compile Include="SteamTraderCore\Steam\SteamParser.cs" />
+    <Compile Include="SteamTraderCore\Steam\SteamSite.cs" />
     <Compile Include="Old_Programm\TF2Mart\Json\Currencies.cs" />
     <Compile Include="Old_Programm\TF2Mart\Json\Key.cs" />
     <Compile Include="Old_Programm\TF2Mart\Json\Position.cs" />
@@ -178,9 +178,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SteamTraderCore\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Steam_monitor;
 
-namespace Steam_monitor.Site
+namespace SteamMonitor.SteamTraderCore
 {
     public abstract class Site
     {
