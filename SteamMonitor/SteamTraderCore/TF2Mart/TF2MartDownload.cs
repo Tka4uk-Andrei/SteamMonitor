@@ -7,20 +7,11 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
     public class Tf2MartDownload
     {
-        public const string TF2_MART_COOKIE = "tf2Mart.dat";
-
         public const string TF2_MART_POST_PARAMS1 =
             "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A22%2C%22defindex%22%3A910%2C%22quality%22%3A{0}%7D%2C%22quality%22%3A%5B%22{0}%22%5D%7D";
 
         public const string TF2_MART_POST_PARAMS =
             "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A50%2C%22defindex%22%3A{0}%2C%22quality%22%3A{2}%2C%22id%22%3A%22{1}%22%7D%2C%22quality%22%3A%5B%22{2}%22%5D%7D";
-
-        private readonly List<Cookie> _cookies;
-
-        public Tf2MartDownload()
-        {
-            _cookies = FileLoader.CookieWorker.LoadFile(TF2_MART_COOKIE);
-        }
 
         //public StreamReader Download(int quality)
         //{
