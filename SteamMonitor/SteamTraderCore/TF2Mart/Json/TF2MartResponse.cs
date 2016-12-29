@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Steam_monitor.TF2Mart.Json
+namespace SteamMonitor.SteamTraderCore.TF2Mart.Json
 {
     [DataContract]
     public class Tf2MartResponse

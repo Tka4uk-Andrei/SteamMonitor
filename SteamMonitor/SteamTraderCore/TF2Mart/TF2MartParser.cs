@@ -3,9 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using Steam_monitor.TF2Mart.Json;
+using SteamMonitor.SteamTraderCore.TF2Mart.Json;
+using Steam_monitor;
 
-namespace Steam_monitor
+namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
     public class TF2MartParser
     {

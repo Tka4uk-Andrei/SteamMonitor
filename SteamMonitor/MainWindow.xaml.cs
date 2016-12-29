@@ -1,25 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using SteamMonitor.SteamTraderCore.Steam;
+using SteamMonitor.SteamTraderCore.TF2Mart;
 using Steam_monitor;
-using Steam_monitor.Steam;
 using Steam_monitor.SteamSchema;
 using Steam_monitor.TF2Mart;
 using Button = System.Windows.Controls.Button;
-using MessageBox = System.Windows.MessageBox;
 
 namespace SteamMonitor
 {

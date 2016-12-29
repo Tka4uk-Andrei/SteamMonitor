@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using SteamMonitor.SteamTraderCore;
+using SteamMonitor.SteamTraderCore.TF2Mart;
 
 namespace Steam_monitor.TF2Mart
 {
