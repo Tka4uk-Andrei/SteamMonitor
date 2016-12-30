@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
@@ -48,12 +49,15 @@ namespace SteamMonitor
                 qualities
                 );
 
-            Console.WriteLine();
-
             steamSchema.AddInfo(tf2MartSite.GetAllItems());
 
             List<string> notFounItems;
             var outputInfo = ProfitFinder.CompareItems(tf2MartSite, steamSite, out notFounItems);
+
+            StreamWriter outWriter = new StreamWriter("errors.txt");
+            foreach (var i in notFounItems)
+                outWriter.WriteLine(i);
+            outWriter.Close();
 
             var s = "";
             foreach (var p in outputInfo)
