@@ -65,13 +65,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
         public void Download(int quality)
         {
-            for (var i = 0; i < _steamItems.Count; ++i)
-            {
-                if (_steamItems[i].quality != quality) continue;
-
-                _steamItems.RemoveAt(i);
-                i--;
-            }
+            ClearItemsList(quality);
 
             _download.StartCount = 0;
             do
@@ -79,6 +73,17 @@ namespace SteamMonitor.SteamTraderCore.Steam
                 _steamItems.AddRange(_parser.GetItems(_download.Download(_cookieContainer, quality)));
                 _download.StartCount += 100;
             } while (_download.StartCount <= _parser.MaxPage);
+        }
+
+        public void ClearItemsList(int quality)
+        {
+            for (var i = 0; i < _steamItems.Count; ++i)
+            {
+                if (_steamItems[i].quality != quality) continue;
+
+                _steamItems.RemoveAt(i);
+                i--;
+            }
         }
     }
 }
