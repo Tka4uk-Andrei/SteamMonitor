@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 //
 // maybe we need to rename it 
@@ -12,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace SteamMonitor.SteamTraderCore
 {
-    class FileLoader
+    internal class FileLoader
     {
         // TODO rename varibles
         public static class KeyWorcker
         {
             public static double GetBuyPrice(string path)
             {
-                StreamReader cookieReader = new StreamReader(path);
+                var cookieReader = new StreamReader(path);
 
                 var a = double.Parse(cookieReader.ReadLine());
 
@@ -30,7 +26,7 @@ namespace SteamMonitor.SteamTraderCore
 
             public static double GetSellPrice(string path)
             {
-                StreamReader cookieReader = new StreamReader(path);
+                var cookieReader = new StreamReader(path);
 
                 cookieReader.ReadLine();
 
@@ -47,7 +43,7 @@ namespace SteamMonitor.SteamTraderCore
         {
             public static List<Cookie> LoadFile(string fileName)
             {
-                StreamReader cookieReader = new StreamReader(fileName);
+                var cookieReader = new StreamReader(fileName);
 
                 var cookies = new List<Cookie>();
                 while (!cookieReader.EndOfStream)
@@ -78,6 +74,5 @@ namespace SteamMonitor.SteamTraderCore
                 return r;
             }
         }
-
     }
 }
