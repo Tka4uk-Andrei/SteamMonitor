@@ -31,7 +31,9 @@ namespace SteamMonitor.SteamTraderCore
                     {
                         BuyPrice = itemA.buyPrice,
                         Profit = itemB.sellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.buyPrice,
-                        ItemName = itemA.fullName
+                        ItemName = itemA.fullName,
+                        BuyPage = a.GetSiteName(),
+                        SellPage = b.GetSiteName()
                     });
                 }
             }
