@@ -14,7 +14,7 @@ namespace SteamMonitor.SteamTraderCore
 {
     class FileLoader
     {
-
+        // TODO rename varibles
         public static class KeyWorcker
         {
             public static double GetBuyPrice(string path)
