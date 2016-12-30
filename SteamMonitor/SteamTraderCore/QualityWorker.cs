@@ -29,55 +29,6 @@ namespace SteamMonitor.SteamTraderCore
             {"Collector's", 14}
         };
 
-
-        public static List<int> GetQualities(string siteName)
-        {
-            //Warning not all qualities could be added in one list
-
-            var qualities = new List<int>();
-
-            Console.WriteLine("Choose qualities for {0}", siteName);
-            Console.WriteLine("".PadRight(35, '-'));
-
-            foreach (var t in IdDictionary)
-            {
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("{0, -4}---> {1}", (t.Key + " ").PadRight(4, '-'), t.Value);
-                Console.ResetColor();
-
-                Console.WriteLine("".PadRight(35, '-'));
-            }
-            Console.WriteLine("{0, -4}---> {1}", "0 ".PadRight(4, '-'), "End of transition");
-            Console.WriteLine("".PadRight(35, '-'));
-
-            var flag = true;
-            do
-            {
-                var sub = "";
-                foreach (var t in Console.ReadLine())
-                    if (t == ' ')
-                    {
-                        int p;
-                        if (int.TryParse(sub, out p) && IdDictionary.ContainsKey(p) && !qualities.Contains(p))
-                            qualities.Add(p);
-                        else if (sub == "0")
-                        {
-                            flag = false;
-                            break;
-                        }
-                        sub = "";
-                    }
-                    else
-                        sub += t;
-
-                if (sub == "0")
-                    flag = false;
-
-            } while (flag);
-
-            return qualities;
-        }
-
         public static string AddQualityToName(string name, int quality)
         {
             if (IdDictionary.ContainsKey(quality))
