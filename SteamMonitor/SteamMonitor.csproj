@@ -90,7 +90,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Old_Programm\Item.cs" />
+    <Compile Include="SteamTraderCore\Item.cs" />
     <Compile Include="SteamTraderCore\ProfitFinder.cs" />
     <Compile Include="SteamTraderCore\QualityWorker.cs" />
     <Compile Include="SteamTraderCore\FileLoader.cs" />
