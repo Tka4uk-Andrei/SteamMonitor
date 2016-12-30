@@ -20,18 +20,18 @@ namespace SteamMonitor.SteamTraderCore
                 int foundItemBIndex = FindItem(ref itemA, ref itemsB);
                 var itemB = itemsB[foundItemBIndex];
 
-                if (itemA.fullName != itemB.fullName)
+                if (itemA.FullName != itemB.FullName)
                 {
-                    string notFoundItem = itemA.fullName + "\t" + itemA.defindex;
+                    string notFoundItem = itemA.FullName + "\t" + itemA.Defindex;
                     errorLog.Add(notFoundItem);
                 }
-                else if ((itemA.buyPrice/a.GetSellKeyPrice()*b.GetBuyKeyPrice()) < itemB.sellPrice)
+                else if ((itemA.BuyPrice/a.GetSellKeyPrice()*b.GetBuyKeyPrice()) < itemB.SellPrice)
                 {
                     trades.Add(new TradeModel
                     {
-                        BuyPrice = itemA.buyPrice,
-                        Profit = itemB.sellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.buyPrice,
-                        ItemName = itemA.fullName,
+                        BuyPrice = itemA.BuyPrice,
+                        Profit = itemB.SellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.BuyPrice,
+                        ItemName = itemA.FullName,
                         BuyPage = a.GetSiteName(),
                         SellPage = b.GetSiteName()
                     });
@@ -45,23 +45,23 @@ namespace SteamMonitor.SteamTraderCore
         {
             var i = 0;
 
-            while (i < items.Count && item.fullName != items[i].fullName)
+            while (i < items.Count && item.FullName != items[i].FullName)
                 ++i;
 
             if (i == items.Count)
             {
                 i = 0;
                 while (i < items.Count && 
-                    "Strange " + item.fullName != items[i].fullName && item.fullName != "Strange " + items[i].fullName)
+                    "Strange " + item.FullName != items[i].FullName && item.FullName != "Strange " + items[i].FullName)
                     ++i;
             }
 
             if (i == items.Count)
                 i--;
-            if ("Strange " + item.fullName == items[i].fullName)
-                item.fullName = "Strange " + item.fullName;
-            if (item.fullName == "Strange " + items[i].fullName)
-                items[i].fullName = "Strange " + items[i].fullName;
+            if ("Strange " + item.FullName == items[i].FullName)
+                item.FullName = "Strange " + item.FullName;
+            if (item.FullName == "Strange " + items[i].FullName)
+                items[i].FullName = "Strange " + items[i].FullName;
 
             return i;
         }

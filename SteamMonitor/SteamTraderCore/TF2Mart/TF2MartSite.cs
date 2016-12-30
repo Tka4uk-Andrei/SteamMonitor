@@ -56,7 +56,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 
         public override List<Item> GetItems(int quality)
         {
-            return _martItems.Where(item => item.quality == quality).ToList();
+            return _martItems.Where(item => item.Quality == quality).ToList();
         }
 
         public void Download(int quality)
@@ -69,8 +69,8 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
             while (_parser.NextFlag)
                 foreach (var t in
                     _parser.GetItems(_download.Download
-                        (_cookieContainer, _martItems[_martItems.Count - 1].defindex,
-                            _martItems[_martItems.Count - 1].id, quality)))
+                        (_cookieContainer, _martItems[_martItems.Count - 1].Defindex,
+                            _martItems[_martItems.Count - 1].Id, quality)))
                     _martItems.Add(t);
         }
 
@@ -78,7 +78,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
         {
             for (var i = 0; i < _martItems.Count; ++i)
             {
-                if (_martItems[i].quality != quality) continue;
+                if (_martItems[i].Quality != quality) continue;
 
                 _martItems.RemoveAt(i);
                 i--;

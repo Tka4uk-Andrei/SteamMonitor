@@ -1,17 +1,17 @@
-﻿namespace Steam_monitor
+﻿namespace SteamMonitor.SteamTraderCore
 {
     public class Item
     {
-        public string fullName { get; set; }
+        public string FullName { get; set; }
 
-        public int defindex { get; set; }
+        public int Defindex { get; set; }
 
-        public string id { get; set; }
+        public string Id { get; set; }
 
-        public double sellPrice { get; set; }
+        public double SellPrice { get; set; }
 
-        public double buyPrice { get; set; }
+        public double BuyPrice { get; set; }
 
-        public int quality { get; set; }
+        public int Quality { get; set; }
     }
 }

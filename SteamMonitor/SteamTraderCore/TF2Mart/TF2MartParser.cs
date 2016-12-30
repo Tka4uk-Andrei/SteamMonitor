@@ -30,12 +30,12 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 
                 items.AddRange(download.Positions.Select(t => new Item
                 {
-                    buyPrice = t.Price.Sell,
-                    sellPrice = t.Price.Buy,
-                    fullName = "",
-                    quality = t.Quality,
-                    defindex = t.Defindex,
-                    id = t.Id
+                    BuyPrice = t.Price.Sell,
+                    SellPrice = t.Price.Buy,
+                    FullName = "",
+                    Quality = t.Quality,
+                    Defindex = t.Defindex,
+                    Id = t.Id
                 }));
 
                 NextFlag = download.Next;

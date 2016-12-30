@@ -34,55 +34,55 @@ namespace Steam_monitor.SteamSchema
         public void AddInfo(List<Item> items)
         {
             for (var i = 0; i < items.Count; ++i)
-                if (string.IsNullOrEmpty(items[i].fullName))
+                if (string.IsNullOrEmpty(items[i].FullName))
                 {
-                    items[i].fullName = _idDictionary[items[i].defindex];
+                    items[i].FullName = _idDictionary[items[i].Defindex];
 
-                    switch (items[i].defindex)
+                    switch (items[i].Defindex)
                     {
                         case 935:
-                            items[i].fullName = "Voodoo JuJu (Slight Return)";
+                            items[i].FullName = "Voodoo JuJu (Slight Return)";
                             break;
                         case 5617:
-                            items[i].fullName = "Voodoo-Cursed Scout Soul";
+                            items[i].FullName = "Voodoo-Cursed Scout Soul";
                             break;
                         case 5618:
-                            items[i].fullName = "Voodoo-Cursed Soldier Soul";
+                            items[i].FullName = "Voodoo-Cursed Soldier Soul";
                             break;
                         case 5619:
-                            items[i].fullName = "Voodoo-Cursed Heavy Soul";
+                            items[i].FullName = "Voodoo-Cursed Heavy Soul";
                             break;
                         case 5620:
-                            items[i].fullName = "Voodoo-Cursed Demoman Soul";
+                            items[i].FullName = "Voodoo-Cursed Demoman Soul";
                             break;
                         case 5621:
-                            items[i].fullName = "Voodoo-Cursed Engineer Soul";
+                            items[i].FullName = "Voodoo-Cursed Engineer Soul";
                             break;
                         case 5622:
-                            items[i].fullName = "Voodoo-Cursed Medic Soul";
+                            items[i].FullName = "Voodoo-Cursed Medic Soul";
                             break;
                         case 5623:
-                            items[i].fullName = "Voodoo-Cursed Spy Soul";
+                            items[i].FullName = "Voodoo-Cursed Spy Soul";
                             break;
                         case 5624:
-                            items[i].fullName = "Voodoo-Cursed Pyro Soul";
+                            items[i].FullName = "Voodoo-Cursed Pyro Soul";
                             break;
                         case 5625:
-                            items[i].fullName = "Voodoo-Cursed Sniper Soul";
+                            items[i].FullName = "Voodoo-Cursed Sniper Soul";
                             break;
                         case 30519:
-                            items[i].fullName = "Mannhattan Project";
+                            items[i].FullName = "Mannhattan Project";
                             break;
                         case 30536:
-                            items[i].fullName = "Li'l Dutchman";
+                            items[i].FullName = "Li'l Dutchman";
                             break;
                     }
 
-                    items[i].fullName = QualityWorker.AddQualityToName(ArticalDelite(items[i].fullName), items[i].quality);
+                    items[i].FullName = QualityWorker.AddQualityToName(ArticalDelite(items[i].FullName), items[i].Quality);
                 }
                 else
                     // BUG not all ids could be found
-                    items[i].defindex = _stringDictionary[items[i].fullName];
+                    items[i].Defindex = _stringDictionary[items[i].FullName];
         }
 
         private string ArticalDelite(string s)

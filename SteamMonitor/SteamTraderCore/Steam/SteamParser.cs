@@ -44,11 +44,11 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
                 item = new Item
                 {
-                    quality = -1,
-                    buyPrice = double.Parse(p),
-                    fullName = nameCollection[i].InnerText,
-                    defindex = -1,
-                    sellPrice = double.Parse(p)*0.87
+                    Quality = -1,
+                    BuyPrice = double.Parse(p),
+                    FullName = nameCollection[i].InnerText,
+                    Defindex = -1,
+                    SellPrice = double.Parse(p)*0.87
                 };
 
                 items.Add(item);

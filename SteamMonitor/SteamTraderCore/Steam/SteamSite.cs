@@ -60,7 +60,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
         public override List<Item> GetItems(int quality)
         {
-            return _steamItems.Where(item => item.quality == quality).ToList();
+            return _steamItems.Where(item => item.Quality == quality).ToList();
         }
 
         public void Download(int quality)
@@ -79,7 +79,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
         {
             for (var i = 0; i < _steamItems.Count; ++i)
             {
-                if (_steamItems[i].quality != quality) continue;
+                if (_steamItems[i].Quality != quality) continue;
 
                 _steamItems.RemoveAt(i);
                 i--;
