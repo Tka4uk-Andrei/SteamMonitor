@@ -33,7 +33,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
         {
             var req =
                 (HttpWebRequest)
-                    WebRequest.Create(string.Format(STEAM_MARKET_ITEM, QualityWorker.GetIdDictionary()[quality],
+                    WebRequest.Create(string.Format(STEAM_MARKET_ITEM, QualityWorker.IdDictionary[quality],
                         StartCount));
 
             req.Method = "GET";

@@ -39,9 +39,7 @@ namespace SteamMonitor
 
             qualities.Add(k);
 
-            //var qualities = QualityWorker.GetQualities("All");
-
-            var tf2MartSite = new Tf2MartSite(qualities, new Tf2MartDownload(), new Tf2MartParser());
+            var tf2MartSite = new Tf2MartSite(qualities, "tf2Mart.dat");
             var steamSchema = new SteamSchemaSite();
 
             var steamSite = new SteamSite
@@ -54,22 +52,17 @@ namespace SteamMonitor
 
             steamSchema.AddInfo(tf2MartSite.GetAllItems());
 
-            var outputInfo = ProfitFinder.CompareItems(tf2MartSite, steamSite);
+            List<string> notFounItems;
+            var outputInfo = ProfitFinder.CompareItems(tf2MartSite, steamSite, out notFounItems);
 
             var s = "";
-            foreach (var p in ProfitFinder.CompareItems(tf2MartSite, steamSite))
+            foreach (var p in outputInfo)
             {
                 s =
                     $"Item {p.ItemName,-55}  -- profit --  {p.Profit,15:### ###.00} руб. price {p.BuyPrice,15:#,#,0.00}";
                 TextBlock.Text += "\n" + s;
             }
             Console.WriteLine("".PadLeft(s.Length, '-'));
-
-            //// End of the programm ---
-            //Console.ForegroundColor = ConsoleColor.DarkGreen;
-            //Console.WriteLine("\n\n{0, 74}\n", "<< -- End of the program -- >>");
-            //Console.ReadLine();
-            //// --- --- --- --- --- ---
         }
     }
 }

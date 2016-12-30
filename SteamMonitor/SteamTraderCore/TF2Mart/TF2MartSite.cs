@@ -25,8 +25,8 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 
             _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);
 
-            _sellKeyPrice = FileLoader.KeyWorcker.GetSellPrice(INI_FILE_PATH);
-            _buyKeyPrice = FileLoader.KeyWorcker.GetBuyPrice(INI_FILE_PATH);
+            _sellKeyPrice = FileLoader.KeyWorcker.GetSellPrice("k" + INI_FILE_PATH);
+            _buyKeyPrice = FileLoader.KeyWorcker.GetBuyPrice("k" + INI_FILE_PATH);
 
             _martItems = new List<Item>();
 
