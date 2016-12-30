@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Steam_monitor
+namespace SteamMonitor.SteamTraderCore
 {
     internal static class QualityWorker
     {
@@ -84,16 +84,6 @@ namespace Steam_monitor
                 return IdDictionary[quality] + " " + name;
 
             return name;
-        }
-
-        public static Dictionary<int, string> GetIdDictionary()
-        {
-            return IdDictionary;
-        }
-
-        public static Dictionary<string, int> GetStringDictionary()
-        {
-            return StringDictionary;
         }
     }
 }

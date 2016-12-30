@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using SteamMonitor.SteamTraderCore;
 
 namespace Steam_monitor.SteamSchema
 {
