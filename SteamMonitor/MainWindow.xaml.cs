@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
+using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
 using Steam_monitor;
 using Steam_monitor.SteamSchema;
