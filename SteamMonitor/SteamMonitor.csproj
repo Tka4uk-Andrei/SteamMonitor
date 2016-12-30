@@ -137,7 +137,7 @@
     <Compile Include="SteamTraderCore\TF2Mart\TF2MartDownload.cs" />
     <Compile Include="SteamTraderCore\TF2Mart\TF2MartParser.cs" />
     <Compile Include="SteamTraderCore\TF2Mart\TF2MartSite.cs" />
-    <Compile Include="Old_Programm\TradeModel.cs" />
+    <Compile Include="SteamTraderCore\TradeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
