@@ -1,4 +1,4 @@
-﻿namespace Steam_monitor
+﻿namespace SteamMonitor.SteamTraderCore
 {
     public class TradeModel
     {
