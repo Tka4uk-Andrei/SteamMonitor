@@ -92,7 +92,7 @@
   <ItemGroup>
     <Compile Include="Old_Programm\Item.cs" />
     <Compile Include="SteamTraderCore\ProfitFinder.cs" />
-    <Compile Include="Old_Programm\QualityWorker.cs" />
+    <Compile Include="SteamTraderCore\QualityWorker.cs" />
     <Compile Include="SteamTraderCore\FileLoader.cs" />
     <Compile Include="SteamTraderCore\Site.cs" />
     <Compile Include="Old_Programm\SteamSchema\Json\AdditionalHiddenBodygroups.cs" />
