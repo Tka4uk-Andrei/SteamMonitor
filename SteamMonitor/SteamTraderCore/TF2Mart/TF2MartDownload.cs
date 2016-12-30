@@ -7,26 +7,13 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
     public class Tf2MartDownload
     {
-        public const string TF2_MART_POST_PARAMS_FIRST_TRY =
-            "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A22%2C%22defindex%22%3A910%2C%22quality%22%3A{0}%7D%2C%22quality%22%3A%5B%22{0}%22%5D%7D";
-
         public const string TF2_MART_POST_PARAMS =
-            "filters=%7B%22currency%22%3A%22credits%22%2C%22page%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%22size%22%3A50%2C%22defindex%22%3A{0}%2C%22quality%22%3A{2}%2C%22id%22%3A%22{1}%22%7D%2C%22quality%22%3A%5B%22{2}%22%5D%7D";
-
-        public StreamReader FirstDownload(CookieContainer cookies, int quality)
-        {
-            var req = GenerateRequest(cookies, string.Format(TF2_MART_POST_PARAMS_FIRST_TRY, quality));
-
-            try
-            {
-                return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());
-            }
-            catch (Exception exception)
-            {
-                // Warning not executed exception
-            }
-            return null;
-        }
+            "filters=%7B%22currency%22%3A%22credits%22%2C%22page" +
+            "%22%3A%7B%22sort%22%3A%7B%22type%22%3A%22type%22%2C" +
+            "%22dir%22%3A%22asc%22%7D%2C%22direction%22%3A1%2C%2" +
+            "2size%22%3A50%2C%22defindex%22%3A{0}%2C%22quality%2" +
+            "2%3A{2}%2C%22id%22%3A%22{1}%22%7D%2C%22quality%22%3" +
+            "A%5B%22{2}%22%5D%7D";
 
         public StreamReader Download(CookieContainer cookies, int defindex, string id, int quality)
         {
@@ -50,9 +37,6 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
             var req = (HttpWebRequest) WebRequest.Create("http://tf2mart.net/data/stock/440/page");
 
             req.Method = "POST";
-            //req.KeepAlive = true;
-            //req.Timeout = 10000;
-            //req.ReadWriteTimeout = 10000;
             req.ContentType = "application/x-www-form-urlencoded";
             req.Referer = "http://tf2mart.net/order";
             req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) " +
@@ -68,31 +52,5 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 
             return req;
         }
-
-        //private HttpWebRequest GenerateRequest(string post)
-        //{
-        //    var req = (HttpWebRequest) WebRequest.Create("http://tf2mart.net/data/stock/440/page");
-
-        //    req.Method = "POST";
-        //    req.KeepAlive = true;
-        //    req.Timeout = 10000;
-        //    req.ReadWriteTimeout = 10000;
-        //    req.ContentType = "application/x-www-form-urlencoded";
-        //    req.Referer = "http://tf2mart.net/order";
-        //    req.UserAgent =
-        //        "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 YaBrowser/16.2.0.3539 Safari/537.36";
-
-        //    req.CookieContainer = new CookieContainer();
-        //    foreach (var i in _cookies)
-        //        req.CookieContainer.Add(i);
-
-        //    req.ContentLength = post.Length;
-        //    using (var writer = new StreamWriter(req.GetRequestStream()))
-        //    {
-        //        writer.Write(post);
-        //    }
-
-        //    return req;
-        //}
     }
 }
