@@ -9,7 +9,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart.Json
         public string Id { get; set; }
 
         [DataMember(Name = "slot")]
-        public string Slot { get; set; }
+        public object Slot { get; set; }
 
         [DataMember(Name = "appId")]
         public int AppId { get; set; }
@@ -34,5 +34,14 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart.Json
 
         [DataMember(Name = "paint")]
         public int Paint { get; set; }
+
+        [DataMember(Name = "australium")]
+        public bool Australium { get; set; }
+
+        [DataMember(Name = "strangeParts")]
+        public object StrangeParts { get; set; }
+
+        [DataMember(Name = "killstreak")]
+        public object Killstreak { get; set; }
     }
 }
