@@ -90,6 +90,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SteamAdditionalInfo\AddInfoFromSteam.cs" />
+    <Compile Include="SteamAdditionalInfo\Additionalnfo.cs" />
+    <Compile Include="SteamAdditionalInfo\SteamDownload.cs" />
+    <Compile Include="SteamAdditionalInfo\SteamParcer.cs" />
     <Compile Include="SteamTraderCore\Item.cs" />
     <Compile Include="SteamTraderCore\ProfitFinder.cs" />
     <Compile Include="SteamTraderCore\QualityWorker.cs" />
