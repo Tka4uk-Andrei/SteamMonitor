@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using SteamMonitor.SteamTraderCore.TF2Mart.Json;
-using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
@@ -16,7 +15,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
         {
             var items = new List<Item>();
 
-            string s = response.ReadToEnd();
+            var s = response.ReadToEnd();
 
             var download = new Tf2MartResponse();
             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(s)))
