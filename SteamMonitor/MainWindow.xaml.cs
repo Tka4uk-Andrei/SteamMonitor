@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Windows;
+using SteamMonitor.SteamAdditionalInfo;
 using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
@@ -67,6 +69,20 @@ namespace SteamMonitor
                 TextBlock.Text += "\n" + s;
             }
             Console.WriteLine("".PadLeft(s.Length, '-'));
+
+
+            for (int i = 0; i < outputInfo.Count; ++i)
+            {
+                if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
+                {
+                    var prom = AddInfoFromSteam.GetAddInfoFromSteam(outputInfo[i].ItemName);
+                    s = prom.SoldCountPerDay + "\t" + prom.Name;
+                    AddText.Text += "\n" + s;
+                }
+
+                if (i % 30 == 0 && i != 0)
+                    Thread.Sleep(60000);
+            }
         }
     }
 }

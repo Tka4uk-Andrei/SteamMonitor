@@ -1,14 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Net;
+using System.Threading;
+using SteamMonitor.SteamTraderCore;
 
 namespace SteamMonitor.SteamAdditionalInfo
 {
-    class SteamDownload
+    internal class SteamDownload
     {
+        private const string REQUEST_URI =
+            "http://steamcommunity.com/market/priceoverview/?country=RU&currency=5&appid=440&market_hash_name={0}";
 
+        public static StreamReader Download(string itemName)
+        {
+            var req = (HttpWebRequest) WebRequest.Create(string.Format(REQUEST_URI, itemName));
 
+            req.Method = "GET";
+            req.KeepAlive = true;
+            req.CookieContainer = FileLoader.CookieWorker.LoadCookieContainer("steam.dat");
+
+            try
+            {
+                return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
     }
 }

@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Steam_monitor.SteamSchema.Json;
 
 namespace SteamMonitor.SteamAdditionalInfo
 {
-    class AddInfoFromSteam
+    internal class AddInfoFromSteam
     {
+        public static Additionalnfo GetAddInfoFromSteam(string itemName)
+        {
+            var additionalInfo = new Additionalnfo();
 
+            additionalInfo = (SteamParcer.Parce(SteamDownload.Download(itemName), itemName));
 
+            return additionalInfo;
+        }
     }
 }

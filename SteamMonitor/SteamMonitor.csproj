@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="SteamAdditionalInfo\AddInfoFromSteam.cs" />
     <Compile Include="SteamAdditionalInfo\Additionalnfo.cs" />
+    <Compile Include="SteamAdditionalInfo\Json\SteamResponse.cs" />
     <Compile Include="SteamAdditionalInfo\SteamDownload.cs" />
     <Compile Include="SteamAdditionalInfo\SteamParcer.cs" />
     <Compile Include="SteamTraderCore\Item.cs" />
@@ -165,6 +166,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="SteamAdditionalInfo\Json\json1.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
