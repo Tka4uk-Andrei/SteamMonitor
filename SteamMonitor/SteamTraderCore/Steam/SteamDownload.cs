@@ -17,7 +17,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
         public StreamReader Download(CookieContainer cookies, int quality)
         {
             var req = GenerateRequest(cookies, quality);
-
+            
             try
             {
                 return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());

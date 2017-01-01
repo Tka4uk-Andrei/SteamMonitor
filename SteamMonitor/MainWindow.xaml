@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamMonitor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="720">
+        Title="MainWindow" Height="482" Width="1035">
     <Grid>
         <ScrollViewer>
             <StackPanel x:Name="StackPanel">
@@ -26,8 +26,13 @@
                 <Button x:Name="Collectors" Content="14" HorizontalAlignment="Left" Margin="10,10,0,0"
                         VerticalAlignment="Top" Width="76" />
 
-                <TextBox x:Name="TextBlock" Text="" HorizontalAlignment="Left" Margin="10,10,0,0" Width="700"
-                           Height="2048" />
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBox x:Name="TextBlock" Width="700" Margin="10,10,10,10" Height="2048" />
+                    <TextBox x:Name="AddText" Height="2048" Margin="10,10,10,10" Width="261" />
+
+                </StackPanel>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>
