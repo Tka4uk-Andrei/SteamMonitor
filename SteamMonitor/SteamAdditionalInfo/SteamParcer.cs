@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Threading.Tasks;
 using SteamMonitor.SteamAdditionalInfo.Json;
-using SteamMonitor.SteamTraderCore.TF2Mart.Json;
 
 namespace SteamMonitor.SteamAdditionalInfo
 {
-    static class SteamParcer
+    internal static class SteamParcer
     {
         public static Additionalnfo Parce(StreamReader response, string itemName)
         {
@@ -32,6 +27,5 @@ namespace SteamMonitor.SteamAdditionalInfo
 
             return item;
         }
-
     }
 }

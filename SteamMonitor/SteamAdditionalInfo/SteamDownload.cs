@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Threading;
 using SteamMonitor.SteamTraderCore;
 
 namespace SteamMonitor.SteamAdditionalInfo
@@ -25,7 +24,6 @@ namespace SteamMonitor.SteamAdditionalInfo
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }

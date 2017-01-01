@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Steam_monitor;
+﻿using System.Collections.Generic;
 
 namespace SteamMonitor.SteamTraderCore
 {
@@ -12,17 +10,17 @@ namespace SteamMonitor.SteamTraderCore
             var trades = new List<TradeModel>();
             errorLog = new List<string>();
 
-            for (int i = 0; i < a.GetAllItems().Count; ++i)
+            for (var i = 0; i < a.GetAllItems().Count; ++i)
             {
                 var itemA = a.GetAllItems()[i];
                 var itemsB = b.GetAllItems();
 
-                int foundItemBIndex = FindItem(ref itemA, ref itemsB);
+                var foundItemBIndex = FindItem(ref itemA, ref itemsB);
                 var itemB = itemsB[foundItemBIndex];
 
                 if (itemA.FullName != itemB.FullName)
                 {
-                    string notFoundItem = itemA.FullName + "\t" + itemA.Defindex;
+                    var notFoundItem = itemA.FullName + "\t" + itemA.Defindex;
                     errorLog.Add(notFoundItem);
                 }
                 else if ((itemA.BuyPrice/a.GetSellKeyPrice()*b.GetBuyKeyPrice()) < itemB.SellPrice)
@@ -51,8 +49,9 @@ namespace SteamMonitor.SteamTraderCore
             if (i == items.Count)
             {
                 i = 0;
-                while (i < items.Count && 
-                    "Strange " + item.FullName != items[i].FullName && item.FullName != "Strange " + items[i].FullName)
+                while (i < items.Count &&
+                       "Strange " + item.FullName != items[i].FullName &&
+                       item.FullName != "Strange " + items[i].FullName)
                     ++i;
             }
 

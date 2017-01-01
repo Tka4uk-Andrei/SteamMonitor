@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using SteamMonitor.SteamAdditionalInfo;
 using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
-using Steam_monitor;
-using Steam_monitor.SteamSchema;
-using Button = System.Windows.Controls.Button;
 
 namespace SteamMonitor
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    ///     Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -23,7 +21,7 @@ namespace SteamMonitor
         {
             InitializeComponent();
 
-            Genuine.Click +=ButtonOnClick;
+            Genuine.Click += ButtonOnClick;
             Vintege.Click += ButtonOnClick;
             Unusual.Click += ButtonOnClick;
             Community.Click += ButtonOnClick;
@@ -31,12 +29,11 @@ namespace SteamMonitor
             Strange.Click += ButtonOnClick;
             Haunted.Click += ButtonOnClick;
             Collectors.Click += ButtonOnClick;
-
         }
 
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            int k = Int32.Parse(((Button)sender).Content.ToString());
+            var k = int.Parse(((Button) sender).Content.ToString());
 
             var qualities = new List<int>();
 
@@ -56,7 +53,7 @@ namespace SteamMonitor
             List<string> notFounItems;
             var outputInfo = ProfitFinder.CompareItems(tf2MartSite, steamSite, out notFounItems);
 
-            StreamWriter outWriter = new StreamWriter("errors.txt");
+            var outWriter = new StreamWriter("errors.txt");
             foreach (var i in notFounItems)
                 outWriter.WriteLine(i);
             outWriter.Close();
@@ -71,7 +68,7 @@ namespace SteamMonitor
             Console.WriteLine("".PadLeft(s.Length, '-'));
 
 
-            for (int i = 0; i < outputInfo.Count; ++i)
+            for (var i = 0; i < outputInfo.Count; ++i)
             {
                 if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
                 {
@@ -80,7 +77,7 @@ namespace SteamMonitor
                     AddText.Text += "\n" + s;
                 }
 
-                if (i % 30 == 0 && i != 0)
+                if (i%30 == 0 && i != 0)
                     Thread.Sleep(60000);
             }
         }

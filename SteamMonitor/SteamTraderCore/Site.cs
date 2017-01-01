@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore
 {

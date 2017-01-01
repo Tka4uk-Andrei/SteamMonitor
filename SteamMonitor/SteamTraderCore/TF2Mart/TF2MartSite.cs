@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.TF2Mart
 {

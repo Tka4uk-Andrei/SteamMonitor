@@ -6,7 +6,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 using SteamMonitor.SteamTraderCore.Steam.Json;
-using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.Steam
 {

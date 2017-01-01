@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using Steam_monitor;
 
 namespace SteamMonitor.SteamTraderCore.Steam
 {
@@ -17,7 +16,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
         public StreamReader Download(CookieContainer cookies, int quality)
         {
             var req = GenerateRequest(cookies, quality);
-            
+
             try
             {
                 return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());
