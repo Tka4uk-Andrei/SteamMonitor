@@ -67,18 +67,23 @@ namespace SteamMonitor
             }
             Console.WriteLine("".PadLeft(s.Length, '-'));
 
-
-            for (var i = 0; i < outputInfo.Count; ++i)
+            if (((Button) sender).Content.ToString() != "11" && ((Button)sender).Content.ToString() != "13")
             {
-                if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
+                int kk = 0;
+                for (var i = 0; i < outputInfo.Count; ++i)
                 {
-                    var prom = AddInfoFromSteam.GetAddInfoFromSteam(outputInfo[i].ItemName);
-                    s = prom.SoldCountPerDay + "\t" + prom.Name;
-                    AddText.Text += "\n" + s;
-                }
+                    if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
+                    {
+                        kk++;
+                        Thread.Sleep(1000);
+                        var prom = AddInfoFromSteam.GetAddInfoFromSteam(outputInfo[i].ItemName);
+                        s = prom.SoldCountPerDay + "\t" + prom.Name;
+                        AddText.Text += "\n" + s;
+                    }
 
-                if (i%30 == 0 && i != 0)
-                    Thread.Sleep(60000);
+                    if (kk % 10 == 0 && i != 0)
+                        Thread.Sleep(60000);
+                }
             }
         }
     }
