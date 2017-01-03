@@ -22,7 +22,8 @@ namespace SteamMonitor.SteamAdditionalInfo
                 resp = ser.ReadObject(ms) as SteamResponse;
 
                 item.Name = itemName;
-                item.SoldCountPerDay = int.Parse(resp.Volume);
+
+                item.SoldCountPerDay = resp?.Volume != null ? int.Parse(resp.Volume) : 0;
             }
 
             return item;
