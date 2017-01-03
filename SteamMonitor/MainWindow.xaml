@@ -7,36 +7,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:SteamMonitor"
     mc:Ignorable="d"
-    Title="MainWindow" Height="482" Width="1035">
+    Title="MainWindow" Height="600" Width="1035">
 
-    <Grid>
-        <ScrollViewer>
-            <StackPanel x:Name="StackPanel">
-                <Button x:Name="Genuine" Content="1" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
-                <Button x:Name="Vintege" Content="3" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
-                <Button x:Name="Unusual" Content="5" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
-                <Button x:Name="Community" Content="7" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
-                <Button x:Name="Self_Made" Content="9" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
-                <Button x:Name="Strange" Content="11" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
-                <Button x:Name="Haunted" Content="13" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
-                <Button x:Name="Collectors" Content="14" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
+    <StackPanel x:Name="StackPanel" Orientation="Vertical">
 
-                <StackPanel Orientation="Horizontal">
+        <TextBlock Margin="10,5,0,0" FontSize="14">Choose quality</TextBlock>
 
-                    <TextBox x:Name="TextBlock" Width="700" Margin="10,10,10,10" Height="2048" />
-                    <TextBox x:Name="AddText" Height="2048" Margin="10,10,10,10" Width="261" />
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+            <Button x:Name="Genuine" Content="1" HorizontalAlignment="Left" Margin="0,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Vintege" Content="3" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Unusual" Content="5" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Community" Content="7" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Self_Made" Content="9" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Strange" Content="11" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Haunted" Content="13" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+            <Button x:Name="Collectors" Content="14" HorizontalAlignment="Left" Margin="5,0,0,0"
+                    VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
+        </StackPanel>
 
-                </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+            <TextBox x:Name="TextBlock" Width="700" Margin="10,10,10,10" Height="420" Background="#1E1E1E"
+                     BorderBrush="#3F3F46" />
+            <TextBox x:Name="AddText" Height="420" Margin="10,10,10,10" Width="261" Background="#1E1E1E"
+                     BorderBrush="#3F3F46" />
+        </StackPanel>
 
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+    </StackPanel>
 </Window>
