@@ -1,30 +1,33 @@
-﻿<Window x:Class="SteamMonitor.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SteamMonitor"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="482" Width="1035">
+﻿<Window
+    Style="{StaticResource MyWindowStyle}"
+    x:Class="SteamMonitor.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:SteamMonitor"
+    mc:Ignorable="d"
+    Title="MainWindow" Height="482" Width="1035">
+
     <Grid>
         <ScrollViewer>
             <StackPanel x:Name="StackPanel">
                 <Button x:Name="Genuine" Content="1" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
                 <Button x:Name="Vintege" Content="3" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
                 <Button x:Name="Unusual" Content="5" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
                 <Button x:Name="Community" Content="7" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
                 <Button x:Name="Self_Made" Content="9" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
                 <Button x:Name="Strange" Content="11" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
                 <Button x:Name="Haunted" Content="13" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
                 <Button x:Name="Collectors" Content="14" HorizontalAlignment="Left" Margin="10,10,0,0"
-                        VerticalAlignment="Top" Width="76" />
+                        VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}"/>
 
                 <StackPanel Orientation="Horizontal">
 
