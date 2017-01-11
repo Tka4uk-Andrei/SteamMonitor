@@ -6,9 +6,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:SteamMonitor"
+    xmlns:steamTraderCore="clr-namespace:SteamMonitor.SteamTraderCore"
     mc:Ignorable="d"
     Title="MainWindow" Height="600" Width="1035">
 
+    <Window.Resources>
+        <DataTemplate x:Key="ItemTemplate" DataType="steamTraderCore:TradeModel">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="Name" Text="{Binding Path=ItemName}"/>
+                <TextBlock x:Name="Price" Text="{Binding Path=BuyPrice}"/>
+                <TextBlock x:Name="Profit" Text="{Binding Path=Profit}"/>
+                <Button Content="sold in last 24h" Click="GetAddInfo"></Button>
+                <TextBlock x:Name="SoldCount" Text="{Binding Path=SoldCount}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <DockPanel HorizontalAlignment="Stretch" Margin="1,0,-1,0">
 
         <StackPanel DockPanel.Dock="Top">
@@ -33,16 +46,9 @@
                     VerticalAlignment="Top" Width="76" Style="{StaticResource WindowButtonStyle}" />
             </StackPanel>
         </StackPanel>
-        
-        <StackPanel Orientation="Horizontal" >
-            <DockPanel>
-                <TextBox x:Name="TextBlock" Width="700" Style="{StaticResource TextBoxStyle}" />
-            </DockPanel>
 
-            <DockPanel>
-                <TextBox x:Name="AddText" Width="261" Style="{StaticResource TextBoxStyle}" />
-            </DockPanel>
-        </StackPanel>
+        
+        <ListBox x:Name="ItemsList" SelectionMode="Single" ItemTemplate="{StaticResource ItemTemplate}"></ListBox>
 
     </DockPanel>
 </Window>

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using SteamMonitor.SteamAdditionalInfo;
@@ -58,32 +56,40 @@ namespace SteamMonitor
                 outWriter.WriteLine(i);
             outWriter.Close();
 
-            var s = "";
-            foreach (var p in outputInfo)
-            {
-                s =
-                    $"Item {p.ItemName,-55}  -- profit --  {p.Profit,15:### ###.00} руб. price {p.BuyPrice,15:#,#,0.00}";
-                TextBlock.Text += "\n" + s;
-            }
-            Console.WriteLine("".PadLeft(s.Length, '-'));
+            ItemsList.ItemsSource = outputInfo;
 
-            if (((Button) sender).Content.ToString() != "11" && ((Button)sender).Content.ToString() != "13")
-            {
-                int kk = 0;
-                for (var i = 0; i < outputInfo.Count; ++i)
-                {
-                    if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
-                    {
-                        kk++;
-                        Thread.Sleep(1000);
-                        var prom = AddInfoFromSteam.GetAddInfoFromSteam(outputInfo[i].ItemName);
-                        s = prom.SoldCountPerDay + "\t" + prom.Name;
-                        AddText.Text += "\n" + s;
-                    }
+            //if (((Button) sender).Content.ToString() != "11" && ((Button)sender).Content.ToString() != "13")
+            //{
+            //    int kk = 0;
+            //    for (var i = 0; i < outputInfo.Count; ++i)
+            //    {
+            //        if (i == 0 || outputInfo[i].ItemName != outputInfo[i - 1].ItemName)
+            //        {
+            //            kk++;
+            //            Thread.Sleep(1000);
+            //            var prom = AddInfoFromSteam.GetAddInfoFromSteam(outputInfo[i].ItemName);
+            //            s = prom.SoldCountPerDay + "\t" + prom.Name;
+            //            AddText.Text += "\n" + s;
+            //        }
 
-                    if (kk % 10 == 0 && i != 0)
-                        Thread.Sleep(60000);
-                }
+            //        if (kk % 10 == 0 && i != 0)
+            //            Thread.Sleep(60000);
+            //    }
+            //}
+        }
+
+        private void GetAddInfo(object sender, RoutedEventArgs e)
+        {
+            // TODO like MVVM
+            if (ItemsList.SelectedItems.Count > 0)
+            {
+                ((TradeModel) ItemsList.SelectedItems[0]).SoldCount =
+                    AddInfoFromSteam.GetAddInfoFromSteam(((TradeModel) ItemsList.SelectedItems[0]).ItemName)
+                        .SoldCountPerDay.ToString();
+
+                var prom = ItemsList.ItemsSource;
+                ItemsList.ItemsSource = null;
+                ItemsList.ItemsSource = prom;
             }
         }
     }

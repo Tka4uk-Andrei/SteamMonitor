@@ -24,7 +24,7 @@ namespace SteamMonitor.SteamAdditionalInfo
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
         }
     }

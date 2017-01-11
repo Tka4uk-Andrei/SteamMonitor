@@ -31,7 +31,8 @@ namespace SteamMonitor.SteamTraderCore
                         Profit = itemB.SellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.BuyPrice,
                         ItemName = itemA.FullName,
                         BuyPage = a.GetSiteName(),
-                        SellPage = b.GetSiteName()
+                        SellPage = b.GetSiteName(),
+                        SoldCount = ""
                     });
                 }
             }

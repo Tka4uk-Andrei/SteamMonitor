@@ -11,5 +11,7 @@
         public string BuyPage { get; set; }
 
         public string SellPage { get; set; }
+
+        public string SoldCount { get; set; }
     }
 }
