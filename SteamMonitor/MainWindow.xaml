@@ -12,12 +12,12 @@
 
     <Window.Resources>
         <DataTemplate x:Key="ItemTemplate" DataType="steamTraderCore:TradeModel">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="Name" Text="{Binding Path=ItemName}"/>
-                <TextBlock x:Name="Price" Text="{Binding Path=BuyPrice}"/>
-                <TextBlock x:Name="Profit" Text="{Binding Path=Profit}"/>
-                <Button Content="sold in last 24h" Click="GetAddInfo"></Button>
-                <TextBlock x:Name="SoldCount" Text="{Binding Path=SoldCount}"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock x:Name="Name" Width="300" Margin="5" Text="{Binding Path=ItemName}"/>
+                <TextBlock x:Name="Price" Width="100" Margin="5" Text="{Binding Path=BuyPrice}"/>
+                <TextBlock x:Name="Profit" Width="100" Margin="5" Text="{Binding Path=Profit}"/>
+                <Button Content="sold in last 24h" Margin="5" Click="GetAddInfo"></Button>
+                <TextBlock x:Name="SoldCount" Width="100" Margin="5" Text="{Binding Path=SoldCount}"/>
             </StackPanel>
         </DataTemplate>
     </Window.Resources>

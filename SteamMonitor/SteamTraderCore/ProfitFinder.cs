@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SteamMonitor.SteamTraderCore
 {
@@ -27,8 +28,8 @@ namespace SteamMonitor.SteamTraderCore
                 {
                     trades.Add(new TradeModel
                     {
-                        BuyPrice = itemA.BuyPrice,
-                        Profit = itemB.SellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.BuyPrice,
+                        BuyPrice = Math.Round(itemA.BuyPrice * 100.0) / 100.0,
+                        Profit = Math.Round((itemB.SellPrice - b.GetBuyKeyPrice()/a.GetSellKeyPrice()*itemA.BuyPrice) * 100.0) / 100.0,
                         ItemName = itemA.FullName,
                         BuyPage = a.GetSiteName(),
                         SellPage = b.GetSiteName(),
