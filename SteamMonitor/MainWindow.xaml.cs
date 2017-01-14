@@ -29,6 +29,20 @@ namespace SteamMonitor
             Collectors.Click += ButtonOnClick;
         }
 
+        class TradeCmp<T> : IComparer<T>
+            where T : TradeModel
+        {
+            public int Compare(T x, T y)
+            {
+                if ((x.Profit * 1000) / x.BuyPrice > (y.Profit * 1000) / y.BuyPrice)
+                    return -1;
+                if ((x.Profit * 1000) / x.BuyPrice < (y.Profit * 1000) / y.BuyPrice)
+                    return 1;
+
+                return 0;
+            }
+        }
+
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             var k = int.Parse(((Button) sender).Content.ToString());
@@ -55,6 +69,9 @@ namespace SteamMonitor
             foreach (var i in notFounItems)
                 outWriter.WriteLine(i);
             outWriter.Close();
+
+            var cmp = new TradeCmp<TradeModel>();
+            outputInfo.Sort(cmp);
 
             ItemsList.ItemsSource = outputInfo;
 
