@@ -29,10 +29,11 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
 
             while (!input.EndOfStream)
             {
-                Pair pair = new Pair();
-
-                pair.Defindex = Int32.Parse(input.ReadLine());
-                pair.Name = input.ReadLine();
+                Pair pair = new Pair
+                {
+                    Defindex = int.Parse(input.ReadLine()),
+                    Name = input.ReadLine()
+                };
 
                 if (_idDictionary.ContainsKey(pair.Defindex))
                 {
@@ -56,11 +57,22 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
                 if (string.IsNullOrEmpty(items[i].FullName))
                 {
                     items[i].FullName = _idDictionary[items[i].Defindex];
-                    items[i].FullName = QualityWorker.AddQualityToName(ArticalDelite(items[i].FullName), items[i].Quality);
+                    items[i].FullName = QualityWorker.AddQualityToName(ArticalDelite(items[i].FullName),
+                        items[i].Quality);
                 }
                 else
-                    // BUG not all ids could be found
-                    items[i].Defindex = _stringDictionary[items[i].FullName];
+                // BUG not all ids could be found
+                {
+                    if (_stringDictionary.ContainsKey(items[i].FullName))
+                    {
+                        items[i].Defindex = _stringDictionary[items[i].FullName];
+
+                    }
+                    else
+                    {
+                        items[i].Defindex = -1;
+                    }
+                }
         }
 
         private string ArticalDelite(string s)
