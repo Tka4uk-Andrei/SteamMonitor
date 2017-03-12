@@ -15,9 +15,13 @@ namespace SteamMonitor
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<TradeModel> _profitItems;
+
         public MainWindow()
         {
             InitializeComponent();
+            Select.IsEnabled = false;
+
 
             Genuine.Click += ButtonOnClick;
             Vintege.Click += ButtonOnClick;
@@ -27,10 +31,14 @@ namespace SteamMonitor
             Strange.Click += ButtonOnClick;
             Haunted.Click += ButtonOnClick;
             Collectors.Click += ButtonOnClick;
+
+            Select.Click += SelectClick;
         }
 
         private void ButtonOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
+            Select.IsEnabled = false;
+
             var k = int.Parse(((Button) sender).Content.ToString());
 
             var qualities = new List<int> {k};
@@ -53,6 +61,10 @@ namespace SteamMonitor
             outputInfo.Sort(cmp);
 
             ItemsList.ItemsSource = outputInfo;
+            _profitItems = new List<TradeModel>();
+            _profitItems = outputInfo;
+
+            Select.IsEnabled = true;
         }
 
         private void GetAddInfo(object sender, RoutedEventArgs e)
@@ -68,6 +80,19 @@ namespace SteamMonitor
                 ItemsList.ItemsSource = null;
                 ItemsList.ItemsSource = prom;
             }
+        }
+
+        private void SelectClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var selectedItems = new List<TradeModel>();
+
+            for (var i = 0; i < _profitItems.Count; ++i)
+            {
+                if (_profitItems[i].BuyPrice <= double.Parse(MaxPriceBox.Text) || MaxPriceBox.Text.Equals("0"))
+                    selectedItems.Add(_profitItems[i]);
+            }
+
+            ItemsList.ItemsSource = selectedItems;
         }
 
         private class TradeCmp<T> : IComparer<T>
