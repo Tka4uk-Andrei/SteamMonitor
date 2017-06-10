@@ -88,7 +88,9 @@ namespace SteamMonitor
 
             for (var i = 0; i < _profitItems.Count; ++i)
             {
-                if (_profitItems[i].BuyPrice <= double.Parse(MaxPriceBox.Text) || MaxPriceBox.Text.Equals("0"))
+                if (double.Parse(MinPriceBox.Text) <= _profitItems[i].BuyPrice 
+                    && _profitItems[i].BuyPrice <= double.Parse(MaxPriceBox.Text) 
+                    || MaxPriceBox.Text.Equals("0"))
                     selectedItems.Add(_profitItems[i]);
             }
 

@@ -55,6 +55,7 @@
                 <Button x:Name="Select" Content="Select less than" Margin="5,0,0,0"
                         VerticalAlignment="Top" Width="100" Style="{StaticResource WindowButtonStyle}" />
                 <TextBox x:Name="MaxPriceBox" Margin="5,0,0,0" Width="100" FontSize="14" Style="{StaticResource TextBoxStyle}">0</TextBox>
+                <TextBox x:Name="MinPriceBox" Margin="5,0,0,0" Width="100" FontSize="14" Style="{StaticResource TextBoxStyle}">0</TextBox>
             </StackPanel>
 
         </StackPanel>

@@ -10,7 +10,7 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
 {
     public class SteamSchemaSite
     {
-        private const string SITE = "http://api.steampowered.com/IEconItems_440/GetSchema/v0001/?key=C8CC97BC3362F59E3A7C115F7D965D69&language=en";
+        private const string SITE = "http://api.steampowered.com/IEconItems_440/GetSchema/v0001/?key=01B225FC2C86C2559DBE9B2BFCDC644A&language=en";
 
         private class Pair
         {
