@@ -81,8 +81,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionary2.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +103,11 @@
     <Compile Include="SteamAdditionalInfo\Json\SteamResponse.cs" />
     <Compile Include="SteamAdditionalInfo\SteamDownload.cs" />
     <Compile Include="SteamAdditionalInfo\SteamParcer.cs" />
+    <Compile Include="SteamMarketItems\inventoryJson\Rootobject.cs" />
+    <Compile Include="SteamMarketItems\ItemInfo.cs" />
+    <Compile Include="SteamMarketItems\Request.cs" />
+    <Compile Include="SteamMarketItems\RequestParcer.cs" />
+    <Compile Include="SteamMarketItems\SteamCookies.cs" />
     <Compile Include="SteamTraderCore\Item.cs" />
     <Compile Include="SteamTraderCore\ProfitFinder.cs" />
     <Compile Include="SteamTraderCore\QualityWorker.cs" />
@@ -175,6 +180,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="SteamAdditionalInfo\Json\json1.json" />
+    <None Include="SteamMarketItems\inventoryJson\exsampleResponse.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -191,7 +197,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="What programm will do.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

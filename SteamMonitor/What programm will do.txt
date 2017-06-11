@@ -1,0 +1,16 @@
+﻿Steam Monitor functionalaty
+and TODO list
+
+// '>>' - done
+// '>>??' - done, but need refactor or it have bugs
+// '??' - it works, but is it need refactor? 
+// '--' - in plans
+// '>>-<<' - doesn't work propertly
+
+>>-<< CLASS MAP!!! 
+
+?? get items data from TF2Mart
+?? get items data from SteamCommunity
+?? compare items from TF2Mart and SteamCommunity and other sites and find profit
+>>?? get sell statistic about some profit item
+>>?? get additional info about profit item, is it in inventory or market?

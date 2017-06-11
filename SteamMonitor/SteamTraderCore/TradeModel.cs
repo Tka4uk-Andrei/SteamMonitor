@@ -13,5 +13,7 @@
         public string SellPage { get; set; }
 
         public string SoldCount { get; set; }
+
+        public string OnSellFlag { get; set; }
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SteamMonitor.SteamAdditionalInfo;
+using SteamMonitor.SteamMarketItems;
 using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
@@ -52,6 +54,7 @@ namespace SteamMonitor
             List<string> notFounItems;
             var outputInfo = ProfitFinder.CompareItems(tf2MartSite, steamSite, out notFounItems);
 
+            // TODO error log print
             var outWriter = new StreamWriter("errors.txt");
             foreach (var i in notFounItems)
                 outWriter.WriteLine(i);
@@ -59,6 +62,22 @@ namespace SteamMonitor
 
             var cmp = new TradeCmp<TradeModel>();
             outputInfo.Sort(cmp);
+
+            var itemsOnMarket = RequestParcer.GetItemInfos(Requests.GetMarketSellList());
+            var itemsInInventory = RequestParcer.ParceInventory(Requests.GetItemsInInventory());
+
+            foreach (var tradeModel in outputInfo)
+            {
+                tradeModel.OnSellFlag = "False";
+
+                foreach (var item in itemsOnMarket)
+                    if (tradeModel.ItemName.Equals(item.Name))
+                        tradeModel.OnSellFlag = "True";
+
+                foreach (var item in itemsInInventory)
+                    if (tradeModel.ItemName.Equals(item.Name))
+                        tradeModel.OnSellFlag = "True";
+            }
 
             ItemsList.ItemsSource = outputInfo;
             _profitItems = new List<TradeModel>();

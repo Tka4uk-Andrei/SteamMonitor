@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:SteamMonitor">
+                    xmlns:local="clr-namespace:SteamMonitor"
+                    xmlns:steamTraderCore="clr-namespace:SteamMonitor.SteamTraderCore"
+                    xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms">
 
     <BooleanToVisibilityConverter x:Key="Bool2VisibilityConverter" />
 
@@ -17,7 +19,7 @@
     <SolidColorBrush x:Key="ForegroundColorBrush" Color="{StaticResource ForegroundColor}" />
     <SolidColorBrush x:Key="BorderBrushBrush" Color="{StaticResource BorderBrushColor}" />
     <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
-    
+
 
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource ForegroundColorBrush}" />
@@ -189,5 +191,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
 </ResourceDictionary>
