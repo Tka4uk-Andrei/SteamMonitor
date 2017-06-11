@@ -8,6 +8,7 @@ and TODO list
 // '>>-<<' - doesn't work propertly
 
 >>-<< CLASS MAP!!! 
+>>-<< design
 
 ?? get items data from TF2Mart
 ?? get items data from SteamCommunity
