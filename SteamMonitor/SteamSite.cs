@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
+using Steam_monitor.SteamSchema.Json;
 
 namespace SteamMonitor.SteamTraderCore.Steam
 {
@@ -11,7 +13,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
 
         private readonly double _buyKeyPrice;
         private readonly CookieContainer _cookieContainer;
-        private readonly SteamDownload _download;
+        private readonly SteamDownload1 _download;
         private readonly SteamParser _parser;
         private readonly double _sellKeyPrice;
         private readonly List<Item> _steamItems;
@@ -23,7 +25,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
         /// <param name="qualities">qualities what will be download</param>
         public SteamSite(string cookiePath, List<int> qualities)
         {
-            _download = new SteamDownload();
+            _download = new SteamDownload1();
             _parser = new SteamParser();
 
             _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);

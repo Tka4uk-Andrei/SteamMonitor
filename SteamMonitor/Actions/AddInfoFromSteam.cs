@@ -1,4 +1,6 @@
-﻿namespace SteamMonitor.SteamAdditionalInfo
+﻿using SteamMonitor.SteamAdditionalInfo;
+
+namespace SteamMonitor.Actions
 {
     internal class AddInfoFromSteam
     {

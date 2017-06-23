@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using SteamMonitor.SteamAdditionalInfo;
+using SteamMonitor.Actions;
 using SteamMonitor.SteamMarketItems;
-using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
@@ -107,8 +105,8 @@ namespace SteamMonitor
 
             for (var i = 0; i < _profitItems.Count; ++i)
             {
-                if (double.Parse(MinPriceBox.Text) <= _profitItems[i].BuyPrice 
-                    && _profitItems[i].BuyPrice <= double.Parse(MaxPriceBox.Text) 
+                if (double.Parse(MinPriceBox.Text) <= _profitItems[i].BuyPrice
+                    && _profitItems[i].BuyPrice <= double.Parse(MaxPriceBox.Text)
                     || MaxPriceBox.Text.Equals("0"))
                     selectedItems.Add(_profitItems[i]);
             }
@@ -121,9 +119,9 @@ namespace SteamMonitor
         {
             public int Compare(T x, T y)
             {
-                if ((x.Profit*1000)/x.BuyPrice > (y.Profit*1000)/y.BuyPrice)
+                if ((x.Profit * 1000) / x.BuyPrice > (y.Profit * 1000) / y.BuyPrice)
                     return -1;
-                if ((x.Profit*1000)/x.BuyPrice < (y.Profit*1000)/y.BuyPrice)
+                if ((x.Profit * 1000) / x.BuyPrice < (y.Profit * 1000) / y.BuyPrice)
                     return 1;
 
                 return 0;

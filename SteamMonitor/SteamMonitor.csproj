@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="TradeModel.cs" />
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,70 +93,69 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\FileLoader.cs" />
+    <Compile Include="Data\Item.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SteamAdditionalInfo\AddInfoFromSteam.cs" />
-    <Compile Include="SteamAdditionalInfo\Additionalnfo.cs" />
-    <Compile Include="SteamAdditionalInfo\Json\SteamResponse.cs" />
-    <Compile Include="SteamAdditionalInfo\SteamDownload.cs" />
-    <Compile Include="SteamAdditionalInfo\SteamParcer.cs" />
-    <Compile Include="SteamMarketItems\inventoryJson\Rootobject.cs" />
-    <Compile Include="SteamMarketItems\ItemInfo.cs" />
-    <Compile Include="SteamMarketItems\Request.cs" />
-    <Compile Include="SteamMarketItems\RequestParcer.cs" />
-    <Compile Include="SteamMarketItems\SteamCookies.cs" />
-    <Compile Include="SteamTraderCore\Item.cs" />
-    <Compile Include="SteamTraderCore\ProfitFinder.cs" />
-    <Compile Include="SteamTraderCore\QualityWorker.cs" />
-    <Compile Include="SteamTraderCore\FileLoader.cs" />
-    <Compile Include="SteamTraderCore\Site.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\AdditionalHiddenBodygroups.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Attribute.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Attribute1.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\AttributeControlledAttachedParticles.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Capabilities.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Item.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\ItemLevels.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\ItemSets.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\KillEaterScoreTypes.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Level.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Originname.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\PerClassLoadoutSlots.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Qualities.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Qualitynames.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Result.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\SteamSchemaResponse.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\String.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\StringLookups.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Style.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\Tool.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\Json\UsageCapabilities.cs" />
-    <Compile Include="SteamTraderCore\SteamSchema\SteamSchemaSite.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\Action.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\AppData.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\Asset.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\Assets.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\Description.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\Listinginfo.cs" />
-    <Compile Include="SteamTraderCore\Steam\Json\SteamItemsJsonResponse.cs" />
-    <Compile Include="SteamTraderCore\Steam\SteamDownload.cs" />
-    <Compile Include="SteamTraderCore\Steam\SteamParser.cs" />
-    <Compile Include="SteamTraderCore\Steam\SteamSite.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Currencies.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Key.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Position.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Price.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Quantity.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\Ref.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\Json\TF2MartResponse.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\TF2MartDownload.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\TF2MartParser.cs" />
-    <Compile Include="SteamTraderCore\TF2Mart\TF2MartSite.cs" />
-    <Compile Include="SteamTraderCore\TradeModel.cs" />
+    <Compile Include="Actions\AddInfoFromSteam.cs" />
+    <Compile Include="Data\Additionalnfo.cs" />
+    <Compile Include="JSON data\SteamAdditionalInfo\SteamResponse.cs" />
+    <Compile Include="ProfitFinder.cs" />
+    <Compile Include="QualityWorker.cs" />
+    <Compile Include="Requests\SteamDownload.cs" />
+    <Compile Include="Parcers\SteamParcer.cs" />
+    <Compile Include="JSON data\SteamMarketItems\Rootobject.cs" />
+    <Compile Include="Data\ItemInfo.cs" />
+    <Compile Include="Requests\Request.cs" />
+    <Compile Include="Parcers\RequestParcer.cs" />
+    <Compile Include="Cookies\SteamCookies.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\AdditionalHiddenBodygroups.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Attribute.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Attribute1.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\AttributeControlledAttachedParticles.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Capabilities.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Item.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\ItemLevels.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\ItemSets.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\KillEaterScoreTypes.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Level.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Originname.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\PerClassLoadoutSlots.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Qualities.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Qualitynames.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Result.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\SteamSchemaResponse.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\String.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\StringLookups.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Style.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\Tool.cs" />
+    <Compile Include="JSON data\Json%28SteamSchema%29\UsageCapabilities.cs" />
+    <Compile Include="Site.cs" />
+    <Compile Include="SteamSchemaSite.cs" />
+    <Compile Include="JSON data\Json%28steam%29\Action.cs" />
+    <Compile Include="JSON data\Json%28steam%29\AppData.cs" />
+    <Compile Include="JSON data\Json%28steam%29\Asset.cs" />
+    <Compile Include="JSON data\Json%28steam%29\Assets.cs" />
+    <Compile Include="JSON data\Json%28steam%29\Description.cs" />
+    <Compile Include="JSON data\Json%28steam%29\Listinginfo.cs" />
+    <Compile Include="JSON data\Json%28steam%29\SteamItemsJsonResponse.cs" />
+    <Compile Include="Requests\SteamDownload1.cs" />
+    <Compile Include="Parcers\SteamParser.cs" />
+    <Compile Include="SteamSite.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Currencies.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Key.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Position.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Price.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Quantity.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\Ref.cs" />
+    <Compile Include="JSON data\Json%28TF2Mart%29\TF2MartResponse.cs" />
+    <Compile Include="Requests\TF2MartDownload.cs" />
+    <Compile Include="Parcers\TF2MartParser.cs" />
+    <Compile Include="TF2MartSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -179,8 +179,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="SteamAdditionalInfo\Json\json1.json" />
-    <None Include="SteamMarketItems\inventoryJson\exsampleResponse.json" />
+    <None Include="JSON data\SteamAdditionalInfo\Json\json1.json" />
+    <None Include="JSON data\SteamMarketItems\inventoryJson\exsampleResponse.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -200,6 +200,7 @@
   <ItemGroup>
     <Resource Include="What programm will do.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
