@@ -3,7 +3,9 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SteamMonitor.Actions;
+using SteamMonitor.Requests.Steam;
 using SteamMonitor.SteamMarketItems;
+using SteamMonitor.SteamTraderCore;
 using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
@@ -61,11 +63,11 @@ namespace SteamMonitor
             var cmp = new TradeCmp<TradeModel>();
             outputInfo.Sort(cmp);
 
-            var itemsOnMarket = RequestParcer.GetItemInfos(Requests.GetMarketSellList());
-            var itemsInInventory = RequestParcer.ParceInventory(Requests.GetItemsInInventory());
+            var itemsOnMarket = RequestParcer.GetItemInfos(GetSteamMarketListings.GetMarketSellList());
+            var itemsInInventory = RequestParcer.ParceInventory(GetSteamInventoryItems.GetItemsInInventory());
 
             foreach (var tradeModel in outputInfo)
-            {
+            {   
                 tradeModel.OnSellFlag = "False";
 
                 foreach (var item in itemsOnMarket)

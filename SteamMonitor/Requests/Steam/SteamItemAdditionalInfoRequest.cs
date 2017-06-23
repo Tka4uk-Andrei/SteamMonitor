@@ -1,13 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using SteamMonitor.StaticData;
 using SteamMonitor.StaticData.Cookies;
-using SteamMonitor.SteamTraderCore;
 
 namespace SteamMonitor.SteamAdditionalInfo
 {
-    internal class SteamDownload
+    internal class SteamItemAdditionalInfoRequest
     {
         private const string REQUEST_URI =
             "http://steamcommunity.com/market/priceoverview/?country=RU&currency=5&appid=440&market_hash_name={0}";

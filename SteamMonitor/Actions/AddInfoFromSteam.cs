@@ -6,7 +6,7 @@ namespace SteamMonitor.Actions
     {
         public static Additionalnfo GetAddInfoFromSteam(string itemName)
         {
-            var additionalInfo = (SteamParcer.Parce(SteamDownload.Download(itemName), itemName));
+            var additionalInfo = (SteamParcer.Parce(SteamItemAdditionalInfoRequest.Download(itemName), itemName));
 
             return additionalInfo;
         }

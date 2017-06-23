@@ -94,6 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Requests\Steam\GetSteamInventoryItems.cs" />
     <Compile Include="StaticData\Cookies\TF2MartCookies.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -107,11 +108,11 @@
     <Compile Include="JSON data\SteamAdditionalInfo\SteamResponse.cs" />
     <Compile Include="Actions\ProfitFinder.cs" />
     <Compile Include="Data\QualityWorker.cs" />
-    <Compile Include="Requests\Steam\SteamDownload.cs" />
+    <Compile Include="Requests\Steam\SteamItemAdditionalInfoRequest.cs" />
     <Compile Include="Parcers\SteamParcer.cs" />
     <Compile Include="JSON data\SteamMarketItems\Rootobject.cs" />
     <Compile Include="Data\ItemInfo.cs" />
-    <Compile Include="Requests\Steam\Request.cs" />
+    <Compile Include="Requests\Steam\GetSteamMarketListings.cs" />
     <Compile Include="Parcers\RequestParcer.cs" />
     <Compile Include="StaticData\Cookies\SteamCookies.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\AdditionalHiddenBodygroups.cs" />
@@ -145,7 +146,7 @@
     <Compile Include="JSON data\Json%28steam%29\Description.cs" />
     <Compile Include="JSON data\Json%28steam%29\Listinginfo.cs" />
     <Compile Include="JSON data\Json%28steam%29\SteamItemsJsonResponse.cs" />
-    <Compile Include="Requests\Steam\SteamDownload1.cs" />
+    <Compile Include="Requests\Steam\GetSteamItemsRequest.cs" />
     <Compile Include="Parcers\SteamParser.cs" />
     <Compile Include="SteamSite.cs" />
     <Compile Include="JSON data\Json%28TF2Mart%29\Currencies.cs" />
