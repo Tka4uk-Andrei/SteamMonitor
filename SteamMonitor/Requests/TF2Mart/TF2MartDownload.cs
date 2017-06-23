@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net;
 
-namespace SteamMonitor.SteamTraderCore.TF2Mart
+namespace SteamMonitor.Requests.TF2Mart
 {
     public class Tf2MartDownload
     {
@@ -16,8 +16,6 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
 
         public StreamReader Download(CookieContainer cookies, int defindex, string id, int quality)
         {
-            //return Download(GenerateRequest2(TF2_MART_POST_PARAMS3));
-
             var req = GenerateRequest(cookies, string.Format(TF2_MART_POST_PARAMS, defindex, id, quality));
 
             try
