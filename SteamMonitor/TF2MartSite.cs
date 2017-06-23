@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using SteamMonitor.StaticData;
+using SteamMonitor.StaticData.Cookies;
 
 namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
@@ -22,7 +24,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
             _download = new Tf2MartDownload();
             _parser = new Tf2MartParser();
 
-            _cookieContainer = FileLoader.CookieWorker.LoadCookieContainer(cookiePath);
+            _cookieContainer = TF2MartCookies.GetStatus().GetCookieContainer();
 
             _sellKeyPrice = FileLoader.KeyWorcker.GetSellPrice("k" + INI_FILE_PATH);
             _buyKeyPrice = FileLoader.KeyWorcker.GetBuyPrice("k" + INI_FILE_PATH);

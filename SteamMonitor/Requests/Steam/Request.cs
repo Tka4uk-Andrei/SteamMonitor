@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Net;
+using SteamMonitor.StaticData.Cookies;
 
 namespace SteamMonitor.SteamMarketItems
 {

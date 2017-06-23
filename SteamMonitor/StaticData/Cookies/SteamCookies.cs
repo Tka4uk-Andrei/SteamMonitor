@@ -2,11 +2,11 @@
 using System.IO;
 using System.Net;
 
-namespace SteamMonitor.SteamMarketItems
+namespace SteamMonitor.StaticData.Cookies
 {
     internal class SteamCookies
     {
-        private static readonly string FileName = "steam2.dat";
+        private static readonly string FileName = "steam.dat";
 
         private static SteamCookies _cookies;
         private readonly CookieContainer _cookieContainer;

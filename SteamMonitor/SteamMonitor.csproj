@@ -76,7 +76,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TradeModel.cs" />
+    <Compile Include="Data\KeyPriceData.cs" />
+    <Compile Include="Data\TradeModel.cs" />
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,7 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\FileLoader.cs" />
+    <Compile Include="StaticData\Cookies\TF2MartCookies.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -104,15 +105,15 @@
     <Compile Include="Actions\AddInfoFromSteam.cs" />
     <Compile Include="Data\Additionalnfo.cs" />
     <Compile Include="JSON data\SteamAdditionalInfo\SteamResponse.cs" />
-    <Compile Include="ProfitFinder.cs" />
-    <Compile Include="QualityWorker.cs" />
-    <Compile Include="Requests\SteamDownload.cs" />
+    <Compile Include="Actions\ProfitFinder.cs" />
+    <Compile Include="Data\QualityWorker.cs" />
+    <Compile Include="Requests\Steam\SteamDownload.cs" />
     <Compile Include="Parcers\SteamParcer.cs" />
     <Compile Include="JSON data\SteamMarketItems\Rootobject.cs" />
     <Compile Include="Data\ItemInfo.cs" />
-    <Compile Include="Requests\Request.cs" />
+    <Compile Include="Requests\Steam\Request.cs" />
     <Compile Include="Parcers\RequestParcer.cs" />
-    <Compile Include="Cookies\SteamCookies.cs" />
+    <Compile Include="StaticData\Cookies\SteamCookies.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\AdditionalHiddenBodygroups.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\Attribute.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\Attribute1.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="JSON data\Json%28SteamSchema%29\Tool.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\UsageCapabilities.cs" />
     <Compile Include="Site.cs" />
+    <Compile Include="StaticData\KeyPrices.cs" />
     <Compile Include="SteamSchemaSite.cs" />
     <Compile Include="JSON data\Json%28steam%29\Action.cs" />
     <Compile Include="JSON data\Json%28steam%29\AppData.cs" />
@@ -143,7 +145,7 @@
     <Compile Include="JSON data\Json%28steam%29\Description.cs" />
     <Compile Include="JSON data\Json%28steam%29\Listinginfo.cs" />
     <Compile Include="JSON data\Json%28steam%29\SteamItemsJsonResponse.cs" />
-    <Compile Include="Requests\SteamDownload1.cs" />
+    <Compile Include="Requests\Steam\SteamDownload1.cs" />
     <Compile Include="Parcers\SteamParser.cs" />
     <Compile Include="SteamSite.cs" />
     <Compile Include="JSON data\Json%28TF2Mart%29\Currencies.cs" />
@@ -153,7 +155,7 @@
     <Compile Include="JSON data\Json%28TF2Mart%29\Quantity.cs" />
     <Compile Include="JSON data\Json%28TF2Mart%29\Ref.cs" />
     <Compile Include="JSON data\Json%28TF2Mart%29\TF2MartResponse.cs" />
-    <Compile Include="Requests\TF2MartDownload.cs" />
+    <Compile Include="Requests\TF2Mart\TF2MartDownload.cs" />
     <Compile Include="Parcers\TF2MartParser.cs" />
     <Compile Include="TF2MartSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

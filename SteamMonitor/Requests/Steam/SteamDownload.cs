@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using SteamMonitor.StaticData;
+using SteamMonitor.StaticData.Cookies;
 using SteamMonitor.SteamTraderCore;
 
 namespace SteamMonitor.SteamAdditionalInfo
@@ -16,7 +18,7 @@ namespace SteamMonitor.SteamAdditionalInfo
 
             req.Method = "GET";
             req.KeepAlive = true;
-            req.CookieContainer = FileLoader.CookieWorker.LoadCookieContainer("steam.dat");
+            req.CookieContainer = SteamCookies.GetStatus().GetCookieContainer();
 
             try
             {
