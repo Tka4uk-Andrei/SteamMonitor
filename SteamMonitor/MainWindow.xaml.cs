@@ -10,6 +10,10 @@ using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
 
+using System.IO;
+using System.Net;
+using System;
+
 namespace SteamMonitor
 {
     /// <summary>
@@ -42,7 +46,6 @@ namespace SteamMonitor
             Select.IsEnabled = false;
 
             var k = int.Parse(((Button) sender).Content.ToString());
-
             var qualities = new List<int> {k};
 
             var tf2MartSite = new Tf2MartSite(qualities, "tf2Mart.dat");
