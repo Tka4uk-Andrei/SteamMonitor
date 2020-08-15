@@ -41,5 +41,8 @@ namespace Steam_monitor.SteamSchema.Json
 
         [DataMember(Name = "string_lookups")]
         public StringLookups[] StringLookups { get; set; }
+
+        [DataMember(Name = "next")]
+        public int Next { get; set; }
     }
 }

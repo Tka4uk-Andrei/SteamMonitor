@@ -11,7 +11,9 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
 {
     public class SteamSchemaSite
     {
-        private const string SITE = "http://api.steampowered.com/IEconItems_440/GetSchema/v0001/?key=01B225FC2C86C2559DBE9B2BFCDC644A&language=en";
+        // todo rename valibules
+        private const string SITE_1 = "http://api.steampowered.com/IEconItems_440/GetSchemaItems/v0001/?key=01B225FC2C86C2559DBE9B2BFCDC644A&language=en";
+        private const string SITE_2 = "http://api.steampowered.com/IEconItems_440/GetSchemaItems/v0001/?key=01B225FC2C86C2559DBE9B2BFCDC644A&language=en&start={0}";
 
         private class Pair
         {
@@ -24,7 +26,15 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
             _idDictionary = new Dictionary<int, string>();
             _stringDictionary = new Dictionary<string, int>();
 
-            Parse(Download());
+            int startVal = 0;
+            Parse(Download(), out startVal);
+
+            bool endFlag = false;
+            while (!endFlag)
+            {
+                Parse(Download(startVal), out startVal);
+                endFlag = (startVal == 0);
+            }
 
             StreamReader input = new StreamReader("itemsDictionary.txt");
 
@@ -62,7 +72,7 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
                         items[i].Quality);
                 }
                 else
-                // BUG not all ids could be found
+                // todo bug fix. not all ids could be found
                 {
                     if (_stringDictionary.ContainsKey(items[i].FullName))
                     {
@@ -86,9 +96,8 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
 
         public StreamReader Download()
         {
-            var req = (HttpWebRequest)WebRequest.Create(SITE);
+            var req = (HttpWebRequest)WebRequest.Create(SITE_1);
             req.Method = "GET";
-            //req.KeepAlive = true;
 
             try
             {
@@ -96,13 +105,30 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
             }
             catch (Exception exception)
             {
-                // Warning exception not executed
+                // todo exception not executed
             }
 
             return null;
         }
 
-        public void Parse(StreamReader input)
+        public StreamReader Download(int startId)
+        {
+            var req = (HttpWebRequest)WebRequest.Create(string.Format(SITE_2, startId));
+            req.Method = "GET";
+
+            try
+            {
+                return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream(), Encoding.UTF8);
+            }
+            catch (Exception exception)
+            {
+                // todo exception not executed
+            }
+
+            return null;
+        }
+
+        public void Parse(StreamReader input, out int nextVal)
         { 
             var schemaResponse = new SteamSchemaResponse();
 
@@ -116,6 +142,8 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
 
                 schemaResponse = ser.ReadObject(ms) as SteamSchemaResponse;
             }
+
+            nextVal = schemaResponse.Result.Next;
 
             foreach (var t in schemaResponse.Result.Items)
             {

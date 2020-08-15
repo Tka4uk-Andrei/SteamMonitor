@@ -19,6 +19,7 @@ namespace SteamMonitor.SteamTraderCore
                 var foundItemBIndex = FindItem(ref itemA, ref itemsB);
                 var itemB = itemsB[foundItemBIndex];
 
+                // todo there is a problem with item search (guess)
                 if (itemA.FullName != itemB.FullName)
                 {
                     var notFoundItem = itemA.FullName + "\t" + itemA.Defindex;
@@ -41,6 +42,7 @@ namespace SteamMonitor.SteamTraderCore
             return trades;
         }
 
+        // returns position of item in items list
         private static int FindItem(ref Item item, ref List<Item> items)
         {
             var i = 0;

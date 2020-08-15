@@ -65,14 +65,16 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
         {
             ClearItemsList(quality);
 
-            foreach (var t in _parser.GetItems(_download.Download(_cookieContainer, 1, "1", quality)))
+            foreach (var t in _parser.GetItems(_download.Download(_cookieContainer, quality)))
                 _martItems.Add(t);
 
             while (_parser.NextFlag)
                 foreach (var t in
                     _parser.GetItems(_download.Download
-                        (_cookieContainer, _martItems[_martItems.Count - 1].Defindex,
-                            _martItems[_martItems.Count - 1].Id, quality)))
+                        (_cookieContainer, 
+                         quality,
+                         _martItems[_martItems.Count - 1].Defindex, 
+                         _martItems[_martItems.Count - 1].Id)))
                     _martItems.Add(t);
         }
 
