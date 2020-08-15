@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SteamMonitor.JSON_data.Json_cookies_;
+using System.Runtime.Serialization.Json;
+using System;
+using System.Text;
 using System.IO;
 using System.Net;
 
@@ -6,30 +9,41 @@ namespace SteamMonitor.StaticData.Cookies
 {
     internal class SteamCookies
     {
-        private static readonly string FileName = "steam.dat";
+        private static readonly string FileName = "cookies.json";
 
         private static SteamCookies _cookies;
         private readonly CookieContainer _cookieContainer;
 
+        // todo unification with TF2MartCookies
         private SteamCookies()
         {
             var cookieReader = new StreamReader(FileName);
 
-            var cookies = new List<Cookie>();
-            while (!cookieReader.EndOfStream)
-            {
-                cookies.Add(new Cookie(
-                    cookieReader.ReadLine(),
-                    cookieReader.ReadLine(),
-                    "/",
-                    ".steamcommunity.com")
-                    );
-            }
-            cookieReader.Close();
-
+            var cookieDataContainer = new CookiesDataContainer();
             _cookieContainer = new CookieContainer();
-            for (var i = 0; i < cookies.Count; ++i)
-                _cookieContainer.Add(cookies[i]);
+
+            try
+            {
+                using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(cookieReader.ReadToEnd())))
+                {
+                    var ser = new DataContractJsonSerializer(cookieDataContainer.GetType(),
+                        new DataContractJsonSerializerSettings
+                        {
+                            UseSimpleDictionaryFormat = true
+                        });
+                    cookieDataContainer = ser.ReadObject(ms) as CookiesDataContainer;
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            for (var i = 0; i < cookieDataContainer.SteamCookieDatas.Length; ++i)
+            {
+                var c = cookieDataContainer.SteamCookieDatas[i];
+                _cookieContainer.Add(new Cookie(c.Name, c.Value, c.Path, c.Domain));
+            }
         }
 
         public static SteamCookies GetStatus()

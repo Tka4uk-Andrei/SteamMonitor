@@ -10,10 +10,6 @@ using SteamMonitor.SteamTraderCore.Steam;
 using SteamMonitor.SteamTraderCore.SteamSchema;
 using SteamMonitor.SteamTraderCore.TF2Mart;
 
-using System.IO;
-using System.Net;
-using System;
-
 namespace SteamMonitor
 {
     /// <summary>
