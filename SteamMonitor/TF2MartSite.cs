@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using SteamMonitor.Requests.TF2Mart;
 using SteamMonitor.StaticData;
-using SteamMonitor.StaticData.Cookies;
 
 namespace SteamMonitor.SteamTraderCore.TF2Mart
 {
@@ -25,7 +24,7 @@ namespace SteamMonitor.SteamTraderCore.TF2Mart
             _download = new Tf2MartDownload();
             _parser = new Tf2MartParser();
 
-            _cookieContainer = TF2MartCookies.GetStatus().GetCookieContainer();
+            _cookieContainer = CookieProvider.GetProvider().GetTf2MartContainer();
 
             _sellKeyPrice = KeyPrices.GetTf2Mart().SellPrice;
             _buyKeyPrice = KeyPrices.GetTf2Mart().BuyPrice;

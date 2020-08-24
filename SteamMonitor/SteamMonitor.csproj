@@ -96,7 +96,7 @@
     </Compile>
     <Compile Include="JSON data\Json%28cookies%29\CookieData.cs" />
     <Compile Include="Requests\Steam\GetSteamInventoryItems.cs" />
-    <Compile Include="StaticData\Cookies\TF2MartCookies.cs" />
+    <Compile Include="StaticData\CookieProvider.cs" />
     <Compile Include="Data\Item.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -115,7 +115,6 @@
     <Compile Include="Data\ItemInfo.cs" />
     <Compile Include="Requests\Steam\GetSteamMarketListings.cs" />
     <Compile Include="Parcers\RequestParcer.cs" />
-    <Compile Include="StaticData\Cookies\SteamCookies.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\AdditionalHiddenBodygroups.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\Attribute.cs" />
     <Compile Include="JSON data\Json%28SteamSchema%29\Attribute1.cs" />

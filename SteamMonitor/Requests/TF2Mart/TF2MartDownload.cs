@@ -57,9 +57,8 @@ namespace SteamMonitor.Requests.TF2Mart
             }
             catch (Exception exception)
             {
-                // todo Exception handle
                 Console.WriteLine(exception);
-                return null;
+                throw exception;
             }
         }
 

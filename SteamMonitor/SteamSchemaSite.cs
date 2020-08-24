@@ -105,10 +105,9 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
             }
             catch (Exception exception)
             {
-                // todo exception not executed
+                Console.WriteLine(exception.Message);
+                throw exception;
             }
-
-            return null;
         }
 
         public StreamReader Download(int startId)
@@ -122,10 +121,9 @@ namespace SteamMonitor.SteamTraderCore.SteamSchema
             }
             catch (Exception exception)
             {
-                // todo exception not executed
+                Console.WriteLine(exception.Message);
+                throw exception;
             }
-
-            return null;
         }
 
         public void Parse(StreamReader input, out int nextVal)

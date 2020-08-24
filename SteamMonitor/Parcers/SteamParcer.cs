@@ -29,10 +29,12 @@ namespace SteamMonitor.SteamAdditionalInfo
                     item.SoldCountPerDay = resp?.Volume != null ? int.Parse(resp.Volume) : 0;
                 }
             }
-            catch (Exception)
+            catch (Exception exception)
             {
+                // TODO: exception handle
                 item.Name = itemName;
                 item.SoldCountPerDay = -1;
+                Console.WriteLine(exception.Message);
             }
 
             return item;

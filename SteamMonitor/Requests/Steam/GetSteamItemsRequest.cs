@@ -21,9 +21,8 @@ namespace SteamMonitor.SteamTraderCore.Steam
             }
             catch (Exception exception)
             {
-                // Warning exception not executed
+                throw exception;
             }
-            return null;
         }
 
         private HttpWebRequest GenerateRequest(CookieContainer cookies, int quality)

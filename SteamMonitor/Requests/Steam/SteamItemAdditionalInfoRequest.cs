@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using SteamMonitor.StaticData.Cookies;
+using SteamMonitor.StaticData;
 
 namespace SteamMonitor.SteamAdditionalInfo
 {
@@ -16,15 +16,16 @@ namespace SteamMonitor.SteamAdditionalInfo
 
             req.Method = "GET";
             req.KeepAlive = true;
-            req.CookieContainer = SteamCookies.GetStatus().GetCookieContainer();
+            req.CookieContainer = CookieProvider.GetProvider().GetSteamContainer();
 
             try
             {
                 return new StreamReader((req.GetResponse() as HttpWebResponse).GetResponseStream());
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                return null;
+                Console.WriteLine(exception.Message);
+                throw exception;
             }
         }
     }
