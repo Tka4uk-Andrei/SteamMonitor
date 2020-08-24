@@ -19,7 +19,7 @@ namespace SteamMonitor.SteamTraderCore
                 var foundItemBIndex = FindItem(ref itemA, ref itemsB);
                 var itemB = itemsB[foundItemBIndex];
 
-                // todo there is a problem with item search (guess)
+                // todo there is a problem with item search (guess). Touches strange items.
                 if (itemA.FullName != itemB.FullName)
                 {
                     var notFoundItem = itemA.FullName + "\t" + itemA.Defindex;

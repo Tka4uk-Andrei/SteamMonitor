@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Security.Policy;
 using SteamMonitor.StaticData;
-using SteamMonitor.StaticData.Cookies;
-using Steam_monitor.SteamSchema.Json;
 
 namespace SteamMonitor.SteamTraderCore.Steam
 {
@@ -29,7 +26,7 @@ namespace SteamMonitor.SteamTraderCore.Steam
             _download = new GetSteamItemsRequest();
             _parser = new SteamParser();
 
-            _cookieContainer = SteamCookies.GetStatus().GetCookieContainer();
+            _cookieContainer = CookieProvider.GetProvider().GetSteamContainer();
 
             _sellKeyPrice = KeyPrices.GetSteamKey().SellPrice;
             _buyKeyPrice = KeyPrices.GetSteamKey().BuyPrice;
